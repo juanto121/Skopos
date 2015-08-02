@@ -105,22 +105,17 @@ body{
     color:#ADA088;
 }
 
-.videoContainer{
-    text-align: center;
+.center{
+    width:560px;
+    margin:0 auto;
 }
 
 .inputContainer{
-    margin:50px;
+    margin-top:50px;
+    width:560px;
+    height:300px;
     text-align: center;
-}
-
-input[type="text"]{
     background-color:#ADA088;
-    text-align: center;
-    color:#0F0B03;
-    width:500px;
-    height:30px;
-    border-style: none;
 }
 
 /* ==========================================================================
