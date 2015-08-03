@@ -8,10 +8,11 @@ var UserInput = (function(){
 
 		/*Variables*/
 		this.subscribers = [];
-		this.input = document.querySelector(".inputContainer");
 		
-		/*Methods*/
-		this.input.onkeydown = function(evt){
+	};
+
+	ui.bindElement = function(element){
+		element.onkeydown = function(evt){
 			var code = evt.keyCode;
 			if(code == KEY_ENTER){
 				evt.preventDefault();
