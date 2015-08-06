@@ -17,6 +17,9 @@ var UserInput = (function(){
 			if(code == KEY_ENTER){
 				evt.preventDefault();
 				this.notify();
+				//fadeIn(evt.target.nextElementSibling.childNodes[0].id);
+				fadeIn();
+				
 			}
 		}.bind(this);
 	};
@@ -28,6 +31,7 @@ var UserInput = (function(){
 	ui.notify = function(){
 		this.subscribers.forEach(function(cb){
 			cb();
+
 		});
 	};
 

@@ -15,12 +15,13 @@ var SinglePlayer = (function(){
 		this.player = player;
 
 		this.userInput.addSubscriber(this.editor.addLine.bind(this.editor));
+
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);
 		this.editor.setHistory(this.inputHistory);
 		this.userInput.bindElement(this.input);
 	};
-
+    
 	return SinglePlayer;
 })();
 

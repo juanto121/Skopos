@@ -11,15 +11,19 @@ var Editor = (function(){
 		if(content.trim() !== ""){
 			console.log(this.player.getCurrentTime() + " " +content);
 			var prevInput = document.createElement("div");
+			var inputUser = document.createElement("div");
 
 			var timestamp = document.createElement("span");
-			timestamp.className = "timestamp";
+			timestamp.className= "timestamp";
 			timestamp.textContent = this.player.getCurrentTime();
 
 			prevInput.textContent = content;
+			inputUser.id = "transcripcion";
 
-			this.previn.appendChild(timestamp);
-			this.previn.appendChild(prevInput);
+			inputUser.appendChild(timestamp);
+			inputUser.appendChild(prevInput);
+
+			this.previn.appendChild(inputUser);
 			this.input.textContent = "";
 		}
 	};
