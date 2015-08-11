@@ -123,6 +123,7 @@ body{
     background-color: rgba(239,232,232,0.4);
     color:black;
     font-size:30px;
+    height: 40px;
 }
 .timestamp{
     color: #03A9F4;

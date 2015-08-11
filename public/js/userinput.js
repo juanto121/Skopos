@@ -17,7 +17,6 @@ var UserInput = (function(){
 			if(code == KEY_ENTER){
 				evt.preventDefault();
 				this.notify();
-				//fadeIn(evt.target.nextElementSibling.childNodes[0].id);
 				fadeIn();
 				
 			}
