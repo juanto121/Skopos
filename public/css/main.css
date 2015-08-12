@@ -199,6 +199,17 @@ height: 56px;
     margin-left: -2%;
 }
 
+.video
+{
+   width: 100%;
+   height: 315px;
+}
+
+.video_min
+{
+   width: 95%;
+   height: 215px;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -240,6 +251,7 @@ height: 56px;
 .span_3_of_3 { width: 100%; }
 .span_2_of_3 { width: 66.66%; }
 .span_1_of_3 { width: 33.33%; height: 100%; }
+.span_1_of_4 {width: 1%;}
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 @media only screen and (max-width: 480px) {
