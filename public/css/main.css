@@ -145,23 +145,18 @@ textarea {
 {
     color: #FFF;
     background-color: #000;
-  
-
-
 }
 
 .won
 {
     color: #FFF;
      background-color: #3C3C3C;
-    
 }
 
 .sent
 {
     color: #FFF;
     background-color:#6B6767 ;
-    
 }
 
 .fix
@@ -173,11 +168,36 @@ textarea {
 .result
 {
     position: absolute;
-    padding: 5%;
+    padding: 5.5%;
     margin-left: 10%;
 }
 
+.icon_2
+{
+position: absolute;
+margin-left: -27%;
+margin-top: -14%;
+width: 51px;
+height: 56px;
+}
 
+.label_in
+{
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #929292;
+    margin-left: -3px;
+    margin-top: -10px;
+}
+
+.label_out
+{
+    font-family: "Montserrat",sans-serif;
+    font-size: 27px;
+    position: absolute;
+    margin-top: -13%;
+    margin-left: -2%;
+}
 
 /* ==========================================================================
    Helper classes
