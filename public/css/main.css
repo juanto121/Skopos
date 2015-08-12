@@ -109,6 +109,7 @@ textarea {
 .stat{
     text-align: center;
     height: 150px;
+
 }
 
 .general_info{
@@ -140,6 +141,41 @@ textarea {
     width: 74.4%;
 }
 
+.design
+{
+    color: #FFF;
+    background-color: #000;
+  
+
+
+}
+
+.won
+{
+    color: #FFF;
+     background-color: #3C3C3C;
+    
+}
+
+.sent
+{
+    color: #FFF;
+    background-color:#6B6767 ;
+    
+}
+
+.fix
+{
+    margin-left: -25%;
+    margin-right: -25%;
+}
+
+.result
+{
+    position: absolute;
+    padding: 5%;
+    margin-left: 10%;
+}
 
 
 
@@ -183,7 +219,7 @@ textarea {
 /*  GRID OF THREE  */
 .span_3_of_3 { width: 100%; }
 .span_2_of_3 { width: 66.66%; }
-.span_1_of_3 { width: 33.33%; }
+.span_1_of_3 { width: 33.33%; height: 100%; }
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 @media only screen and (max-width: 480px) {
