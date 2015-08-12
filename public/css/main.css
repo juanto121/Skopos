@@ -94,7 +94,9 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
 .center{
     max-width:900px;
     margin:0 auto;
@@ -106,10 +108,9 @@ textarea {
     font-size: 100px;
 }
 
-.stat{
+.stats{
     text-align: center;
     height: 150px;
-
 }
 
 .general_info{
@@ -192,11 +193,27 @@ height: 56px;
 
 .label_out
 {
-    font-family: "Montserrat",sans-serif;
+   
     font-size: 27px;
     position: absolute;
     margin-top: -13%;
     margin-left: -2%;
+}
+.ranking table{
+    width:100%;
+    color:white;
+}
+td{
+    padding: 20px;
+    border-bottom: 2px solid white;
+}
+.content{
+    text-align: center;
+}
+
+.ranking{
+    margin: 5px;
+    background-color: #2C2C2A;
 }
 
 .video
