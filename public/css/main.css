@@ -95,18 +95,50 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.center{
+    max-width:900px;
+    margin:0 auto;
+}
 
+.huge{
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    font-size: 100px;
+}
 
+.stat{
+    text-align: center;
+    height: 150px;
+}
 
+.general_info{
+    position: relative;
+}
 
+.rombo{
+    position:absolute;
+    background: #2C2C2A;
+    height:150px;
+    width:150px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+}
 
-
-
-
-
-
-
-
+.icon{
+    min-height: 150px;
+    position: relative;
+    width: 26.4%;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+.description{
+    width: 74.4%;
+}
 
 
 
@@ -114,6 +146,51 @@ textarea {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
+   /*
+   Responsive grid system
+   */
+
+   /*  SECTIONS  */
+.section {
+    clear: both;
+    padding: 0;
+    margin: 0;
+}
+
+/*  COLUMN SETUP  */
+.col {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 0;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TWO  */
+.span_2_of_2 {
+    width: 100%;
+}
+.span_1_of_2 {
+    width: 49.5%;
+}
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.66%; }
+.span_1_of_3 { width: 33.33%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+    .col {  margin: 1% 0 1% 0%; }
+    .span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+
 
 /*
  * Hide visually and from screen readers:
