@@ -94,26 +94,199 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
 
 
+.huge{
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    font-size: 100px;
+}
+
+.stats{
+    position: relative;
+    text-align: center;
+}
+.row{
+        margin-top: 100px;
+    margin-bottom: 100px;
+}
+.yellow{
+     color: #fcdb34;
+}
+.general_info{
+    position: relative;
+}
+.center{
+  max-width: 900px;  
+  margin:0 auto; 
+}
+.rombo{
+    position:absolute;
+    background: #2C2C2A;
+    height:150px;
+    width:150px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    box-shadow:0 0 0 20px rgba(255,255,255,1)
+}
+.infobox{
+    padding: 10px;
+    
+}
+.description{
+    padding: 1px;
+    
+}
+.group:hover>.icon{
+    background-color: #2C2C2A;
+}
+.group:hover>.description{
+    background-color: #fcdb34;
+}
+.icon{
+    min-height:147px;
+    position: relative;
+    width: 26.4%;
+    background: #E7E7E7
+}
+.result{
+    width: 230px;
+    margin:0 auto;
+    padding: 10% 0;
+}
+.icon_2{
+    float:left;
+}
+.design
+{
+    position: relative;
+    color: #FFF;
+    background-color: #000;
+}
+.content_left{
+    padding-right: 20%;
+}
+.content_right{
+    padding-left: 20%;
+}
+.won
+{
+    color: #FFF;
+    background-color: #3C3C3C;
+}
+
+.sent
+{
+    color: #FFF;
+    background-color:#6B6767 ;
+}
+
+.label_out
+{  
+    font-size: 27px;
+    display: block;
+    margin-left: 10px;
+}
+
+.label_in
+{
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #929292;
+}
 
 
+.ranking table{
+    width:100%;
+    color:white;
+}
+td{
+    padding: 20px;
+    border-bottom: 2px solid white;
+}
 
+.content{
+    text-align: center;
+}
 
+.ranking{
+    margin: 5px;
+    background-color: #2C2C2A;
+}
 
+.video
+{
+   width: 100%;
+   height: 315px;
+}
 
-
-
-
-
-
-
-
-
-
+.video_min
+{
+   width: 95%;
+   height: 215px;
+}
+p{
+    text-align: justify;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
+   /*
+   Responsive grid system
+   */
+
+   /*  SECTIONS  */
+.section {
+    clear: both;
+    padding: 0;
+    margin: 0;
+}
+
+/*  COLUMN SETUP  */
+.col {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 0;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TWO  */
+.span_2_of_2 {
+    width: 100%;
+}
+.span_1_of_2 {
+    width: 50%;
+}
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.66%; }
+.span_1_of_3 { width: 33.33%;}
+
+/*  GRID OF FOUR  */
+.span_4_of_4 { width: 100%; }
+.span_3_of_4 { width: 74.75%; }
+.span_2_of_4 { width: 49.5%; }
+.span_1_of_4 { width: 24.25%; }
+
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+    .col {  margin: 1% 0 1% 0%; }
+    .span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+
 
 /*
  * Hide visually and from screen readers:
