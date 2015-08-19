@@ -14,11 +14,18 @@ var UserInput = (function(){
 	ui.bindElement = function(element){
 		element.onkeydown = function(evt){
 			var code = evt.keyCode;
+			
 			if(code == KEY_ENTER){
 				evt.preventDefault();
 				this.notify();
+				//Se reanuda el video.
 				fadeIn();
 				
+			}else
+			{
+				//Se esta escribiendo en el Input
+				//Se pausa el video
+				this.controlVideo();
 			}
 		}.bind(this);
 	};
@@ -30,8 +37,14 @@ var UserInput = (function(){
 	ui.notify = function(){
 		this.subscribers.forEach(function(cb){
 			cb();
-
 		});
+		
+		
+	};
+
+	ui.controlVideo = function()
+	{
+		
 	};
 
 	return UserInput;

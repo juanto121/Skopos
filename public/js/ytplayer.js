@@ -9,3 +9,11 @@ var player;
 function onYouTubeIframeAPIReady() {
  player = new YT.Player('player');
 }
+
+function pauseVideo() {
+        player.pauseVideo();
+}
+
+ function playVideo() {
+        player.playVideo();
+ }
