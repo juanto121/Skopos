@@ -15,6 +15,7 @@ var SinglePlayer = (function(){
 		this.player = player;
 
 		this.userInput.addSubscriber(this.editor.addLine.bind(this.editor));
+		this.userInput.addSubscriber(this.player);
 
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);
