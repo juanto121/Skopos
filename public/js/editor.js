@@ -13,12 +13,13 @@ var Editor = (function(){
 			var prevInput = document.createElement("div");
 			var inputUser = document.createElement("div");
 
-			var timestamp = document.createElement("span");
-			timestamp.className= "timestamp";
+			var timestamp = document.createElement("div");
+			timestamp.className = "timestamp";
+			prevInput.className = "text";
 			timestamp.textContent = this.player.getCurrentTime();
 
 			prevInput.textContent = content;
-			inputUser.id = "transcripcion";
+			inputUser.className = "transcripcion";
 
 			inputUser.appendChild(timestamp);
 			inputUser.appendChild(prevInput);
