@@ -11,11 +11,11 @@ var SinglePlayer = (function(){
 		this.input = document.querySelector(".inputContainer");
 		this.inputHistory = document.querySelector(".prevInput");
 		
-		/*TODO: encapsular player.*/
-		this.player = player;
 
 		this.userInput.addSubscriber(this.editor.addLine.bind(this.editor));
-		this.userInput.addSubscriber(this.player);
+		/*TODO: encapsular player y agregarlo correctamente como subscriptor*/
+		this.player = player;
+		//this.userInput.addSubscriber(this.player.userAction(this.player));
 
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);

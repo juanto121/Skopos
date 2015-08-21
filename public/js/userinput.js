@@ -15,22 +15,13 @@ var UserInput = (function(){
 	ui.bindElement = function(element){
 		element.onkeydown = function(evt){
 			var code = evt.keyCode;
-			
-			//Obtener Player Posicion 1 array.
-			player = this.subscribers[1];
-			
 			if(code == KEY_ENTER){
-				//Se realiza un enter
 				evt.preventDefault();
-				//Se reanuda el video.
 				this.notifyEnter();
 				fadeIn();
-				
 			}else
 			{
-				//Se esta escribiendo en el Input
-				//Se pausa el video
-				this.notifyWrite();
+				this.notifyInput(code);
 			}
 		}.bind(this);
 	};
@@ -40,26 +31,18 @@ var UserInput = (function(){
 	};
 
 	ui.notifyEnter = function(){
-		
-		// Ejecutar Función (Array Posicion 1)
-		this.subscribers[0]();
-		//Llamar metodo play del player del video Actual.
+		/*TODO: player es global*/
 		player.playVideo();
-
-		/*
 		this.subscribers.forEach(function(cb){
- 			cb();
--
- 		});
-		*/
-	
+			cb();
+		});
 	};
 
-	ui.notifyWrite = function()
-	{
-		//Llamar metodo pause del player del video Actual.
+	ui.notifyInput = function(keyCode){
+		/*TODO: player es global*/
 		player.pauseVideo();
 	};
+
 
 	return UserInput;
 })();

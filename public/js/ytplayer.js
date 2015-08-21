@@ -1,3 +1,4 @@
+var KEY_ENTER = 13;
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -9,11 +10,3 @@ var player;
 function onYouTubeIframeAPIReady() {
  player = new YT.Player('player');
 }
-
-function pauseVideo() {
-        player.pauseVideo();
-}
-
- function playVideo() {
-        player.playVideo();
- }
