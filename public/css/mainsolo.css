@@ -140,9 +140,7 @@ body{
     height: 45px;
 }
 
-.inputContainer:focus>.placeholder{
-    display: none;
-}
+
 
 .placeholder{
     color:#c2c2c2;

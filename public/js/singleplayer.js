@@ -7,11 +7,11 @@ var SinglePlayer = (function(){
 	sp.init = function(){
 		this.userInput = new UserInput();
 		this.editor = new Editor();
+		this.toolBox = new Tools();
 		
 		this.input = document.querySelector(".inputContainer");
 		this.inputHistory = document.querySelector(".prevInput");
 		
-
 		this.userInput.addSubscriber(this.editor.addLine.bind(this.editor));
 		/*TODO: encapsular player y agregarlo correctamente como subscriptor*/
 		this.player = player;

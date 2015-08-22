@@ -1,11 +1,11 @@
-var KEY_ENTER = 13;
 var Editor = (function(){
 	function Editor(){
 		this.init();
 	}
 	var editor = Editor.prototype;
 	editor.init = function(){
-		
+		this.formatter = new Formatter();
+		this.transcription = [];
 	};
 	editor.addLine = function(){
 		var content  = this.input.textContent;
@@ -14,16 +14,22 @@ var Editor = (function(){
 			var seconds = this.player.getCurrentTime();
 			var min = (seconds/60)>>0;
 			var secs = (seconds%60)>>0;
-			console.log(this.player.getCurrentTime() + " " +content);
+
+			this.transcription.push({
+				text:content,
+				time:seconds
+			});
+			
 			var prevInput = document.createElement("div");
 			var inputUser = document.createElement("div");
-
 			var timestamp = document.createElement("div");
+
 			timestamp.className = "timestamp";
 			prevInput.className = "text";
+			inputUser.className = "transcripcion";
+
 			timestamp.textContent = min + ":" + secs;
 			prevInput.textContent = content;
-			inputUser.className = "transcripcion";
 
 			inputUser.appendChild(timestamp);
 			inputUser.appendChild(prevInput);
@@ -42,5 +48,9 @@ var Editor = (function(){
 	editor.setPlayer = function(player){
 		this.player = player;
 	};
+	editor.downloadFormat = function(){
+		formatter.format(this.transcription);
+	};
+
 	return Editor;
 })();
