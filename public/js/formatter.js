@@ -8,8 +8,8 @@ var Formatter = (function(){
 		this.formatterType = new SrtFormatter();
 	};
 
-	formatter.format = function(){
-		this.formatterType.format();
+	formatter.format = function(content){
+		this.formatterType.format(content);
 	};
 
 	formatter.setFormatterType = function(formatterType){

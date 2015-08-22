@@ -12,6 +12,10 @@ var SinglePlayer = (function(){
 		this.input = document.querySelector(".inputContainer");
 		this.inputHistory = document.querySelector(".prevInput");
 		
+		this.toolsBoxElement = document.querySelector(".toolbox");
+		this.toolBox.setToolbox(this.toolsBoxElement);
+
+		this.toolBox.addSubscriber(this.toolAction.bind(this));
 		this.userInput.addSubscriber(this.editor.addLine.bind(this.editor));
 		/*TODO: encapsular player y agregarlo correctamente como subscriptor*/
 		this.player = player;
@@ -21,6 +25,18 @@ var SinglePlayer = (function(){
 		this.editor.setInput(this.input);
 		this.editor.setHistory(this.inputHistory);
 		this.userInput.bindElement(this.input);
+	};
+
+	sp.toolAction = function(src){
+		if(src == "download"){
+			this.editor.downloadFormat();
+		}
+	};
+
+	sp.inputAction = function(){
+		/*
+			Handle user input HERE.
+		*/
 	};
     
 	return SinglePlayer;

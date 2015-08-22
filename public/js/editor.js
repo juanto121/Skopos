@@ -49,7 +49,7 @@ var Editor = (function(){
 		this.player = player;
 	};
 	editor.downloadFormat = function(){
-		formatter.format(this.transcription);
+		this.formatter.format(this.transcription);
 	};
 
 	return Editor;
