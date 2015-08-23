@@ -3,15 +3,15 @@ var SinglePlayer = (function(){
 		sp.init();
 	}
 	var sp = SinglePlayer.prototype;
-	
+
 	sp.init = function(){
 		this.userInput = new UserInput();
 		this.editor = new Editor();
 		this.toolBox = new Tools();
-		
+
 		this.input = document.querySelector(".inputContainer");
 		this.inputHistory = document.querySelector(".prevInput");
-		
+
 		this.toolsBoxElement = document.querySelector(".toolbox");
 		this.toolBox.setToolbox(this.toolsBoxElement);
 
@@ -29,7 +29,19 @@ var SinglePlayer = (function(){
 
 	sp.toolAction = function(src){
 		if(src == "download"){
-			this.editor.downloadFormat();
+			var data = this.editor.downloadFormat();
+			$.post("solo",{data:data,name:"filename2.srt"},function(response){
+				var iframe;
+				iframe = document.getElementById("download-container");
+				if (iframe === null)
+				{
+					iframe = document.createElement('iframe');
+					iframe.id = "download-container";
+					iframe.style.visibility = 'hidden';
+					document.body.appendChild(iframe);
+				}
+				iframe.src = response;
+				});
 		}
 	};
 
@@ -38,7 +50,7 @@ var SinglePlayer = (function(){
 			Handle user input HERE.
 		*/
 	};
-    
+
 	return SinglePlayer;
 })();
 

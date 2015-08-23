@@ -1,0 +1,52 @@
+1
+00:00:00,001 --> 00:00:01,564
+css conf
+
+2
+00:00:01,564 --> 00:00:02,600
+presented by css conf
+
+3
+00:00:02,600 --> 00:00:07,212
+sponsored by pvotal
+
+4
+00:00:07,212 --> 00:00:10,219
+thanks sponsors!
+
+5
+00:00:10,219 --> 00:00:13,043
+hi, Im Lea
+
+6
+00:00:13,043 --> 00:00:14,750
+If youve ever heard about me
+
+7
+00:00:14,750 --> 00:00:15,603
+before its probably due to one of my
+
+8
+00:00:15,603 --> 00:00:16,842
+open source projects 
+
+9
+00:00:16,842 --> 00:00:17,817
+you might have seen some of them
+
+10
+00:00:17,817 --> 00:00:20,885
+the rest are on github
+
+11
+00:00:20,885 --> 00:00:22,574
+Im an invited expert in the csworking group
+
+12
+00:00:22,574 --> 00:00:23,894
+which just means
+
+13
+00:00:23,894 --> 00:00:26,894
+manily that I gather with some
+

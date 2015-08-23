@@ -9,7 +9,7 @@ var Formatter = (function(){
 	};
 
 	formatter.format = function(content){
-		this.formatterType.format(content);
+		return	this.formatterType.format(content);
 	};
 
 	formatter.setFormatterType = function(formatterType){
