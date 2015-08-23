@@ -10,7 +10,6 @@ var Editor = (function(){
 	editor.addLine = function(){
 		var content  = this.input.textContent;
 		if(content.trim() !== ""){
-			/*TODO : this.player es GLOBAL*/
 			var seconds = this.player.getCurrentTime();
 			var min = (seconds/60)>>0;
 			var secs = (seconds%60)>>0;

@@ -17,9 +17,13 @@ var SinglePlayer = (function(){
 
 		this.toolBox.addSubscriber(this.toolAction.bind(this));
 		this.userInput.addSubscriber(this.editor.addLine.bind(this.editor));
+		
 		/*TODO: encapsular player y agregarlo correctamente como subscriptor*/
 		this.player = player;
-		//this.userInput.addSubscriber(this.player.userAction(this.player));
+		//this.toolBox.addSubscriber(this.player.changeVideo.bind(this.player));
+		//this.userInput.addSubscriber(this.player.pauseVideo.bind(this.player));
+		//this.userInput.addSubscriber(this.player.playVideo.bind(this.player));
+
 
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);

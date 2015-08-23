@@ -10,3 +10,15 @@ var player;
 function onYouTubeIframeAPIReady() {
  player = new YT.Player('player');
 }
+
+/* Luego de encapsular al player para escuchar el clic en el toolbox:
+
+CLASES que depended de player global: userInput y singlePlayer.
+
+player.changeVideo = function(src){
+	if(src == 'youtube'){
+		//logica para cambiar el video: https://developers.google.com/youtube/js_api_reference?hl=es#Functions
+	}	
+};
+
+*/
