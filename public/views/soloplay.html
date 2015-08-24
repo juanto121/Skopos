@@ -19,22 +19,22 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
             <div class="toolbox">
                 <div class="tool">
-                    <i class="fa fa-download fa-2x"></i>
+                    <i id="download" class="fa fa-download fa-2x"></i>
                 </div>
                 <div class="tool">
-                    <div class="fa fa-cog fa-2x"></div>
+                    <div  id="settings" class="settings fa fa-cog fa-2x"></div>
                 </div>
                 <div class="tool">
-                    <i class="fa fa-youtube  fa-2x"></i>
+                    <i  id="youtube" class="youtube fa fa-youtube  fa-2x"></i>
+                    <div class="url hidden">qu1RjE_2zhQ</div>
                 </div>
                 <div class="tool">
-                    <div class="fa fa-floppy-o fa-2x"></div>
+                    <div id="save" class="save fa fa-floppy-o fa-2x"></div>
                 </div>
                 <div class="tool">
-                    <div class="fa fa-trash-o fa-2x"></div>
+                    <div id="trash" class="trash fa fa-trash-o fa-2x"></div>
                 </div>
             </div>
 
@@ -58,17 +58,23 @@
             <div class="stats">
                 <div class="scoreContainer">
                     <div class="scoreText">Score</div>
-                    <div class="score">
-                        10
-                    </div>
+                    <div class="score">10</div>
+                </div>
+                <div class="scoreContainer">
+                    <div class="scoreText">WPM</div>
+                    <div class="score">72</div>
                 </div>
             </div>
             </div>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
         <script src="../js/plugins.js"></script>
         <script src="../js/singleplayer.js"></script>
         <script src="../js/userinput.js"></script>
         <script src="../js/editor.js"></script>
         <script src="../js/ytplayer.js"></script>
         <script src="../js/efectInput.js"></script>
+        <script src="../js/srtFormatter.js"></script>
+        <script src="../js/formatter.js"></script>
+        <script src="../js/tools.js"></script>
     </body>
 </html>
