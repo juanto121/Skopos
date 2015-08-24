@@ -7,34 +7,36 @@ var Editor = (function(){
 		this.formatter = new Formatter();
 		this.transcription = [];
 	};
-	editor.addLine = function(){
-		var content  = this.input.textContent;
-		if(content.trim() !== ""){
-			var seconds = this.player.getCurrentTime();
-			var min = (seconds/60)>>0;
-			var secs = (seconds%60)>>0;
+	editor.addLine = function(keyCode){
+		if(keyCode == 13){
+			var content  = this.input.textContent;
+			if(content.trim() !== ""){
+				var seconds = this.player.getCurrentTime();
+				var min = (seconds/60)>>0;
+				var secs = (seconds%60)>>0;
 
-			this.transcription.push({
-				text:content,
-				time:seconds
-			});
-			
-			var prevInput = document.createElement("div");
-			var inputUser = document.createElement("div");
-			var timestamp = document.createElement("div");
+				this.transcription.push({
+					text:content,
+					time:seconds
+				});
+				
+				var prevInput = document.createElement("div");
+				var inputUser = document.createElement("div");
+				var timestamp = document.createElement("div");
 
-			timestamp.className = "timestamp";
-			prevInput.className = "text";
-			inputUser.className = "transcripcion";
+				timestamp.className = "timestamp";
+				prevInput.className = "text";
+				inputUser.className = "transcripcion";
 
-			timestamp.textContent = min + ":" + secs;
-			prevInput.textContent = content;
+				timestamp.textContent = min + ":" + secs;
+				prevInput.textContent = content;
 
-			inputUser.appendChild(timestamp);
-			inputUser.appendChild(prevInput);
+				inputUser.appendChild(timestamp);
+				inputUser.appendChild(prevInput);
 
-			this.previn.appendChild(inputUser);
-			this.input.textContent = "";
+				this.previn.appendChild(inputUser);
+				this.input.textContent = "";
+			}
 		}
 	};
 	editor.setInput = function(input){

@@ -8,6 +8,7 @@ var SinglePlayer = (function(){
 		this.userInput = new UserInput();
 		this.editor = new Editor();
 		this.toolBox = new Tools();
+		this.player = new Player();
 
 		this.input = document.querySelector(".inputContainer");
 		this.inputHistory = document.querySelector(".prevInput");
@@ -18,12 +19,8 @@ var SinglePlayer = (function(){
 		this.toolBox.addSubscriber(this.toolAction.bind(this));
 		this.userInput.addSubscriber(this.editor.addLine.bind(this.editor));
 		
-		/*TODO: encapsular player y agregarlo correctamente como subscriptor*/
-		this.player = player;
-		//this.toolBox.addSubscriber(this.player.changeVideo.bind(this.player));
-		//this.userInput.addSubscriber(this.player.pauseVideo.bind(this.player));
-		//this.userInput.addSubscriber(this.player.playVideo.bind(this.player));
-
+		this.userInput.addSubscriber(this.player.resume.bind(this.player));
+		
 
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);
@@ -31,8 +28,8 @@ var SinglePlayer = (function(){
 		this.userInput.bindElement(this.input);
 	};
 
-	sp.toolAction = function(src){
-		if(src == "download"){
+	sp.toolAction = function(notification){
+		if(notification.tag == "download"){
 			var data = this.editor.downloadFormat();
 			$.post("solo",{data:data,name:"filename2.srt"},function(response){
 				var iframe;
@@ -47,11 +44,16 @@ var SinglePlayer = (function(){
 				iframe.src = response;
 				});
 		}
+		if(notification.tag == "youtube"){
+			var id = this.toolsBoxElement.querySelector(".url").textContent;
+			this.player.changeVideo(id);
+			//TODO: change video title.
+		}
 	};
-
 	return SinglePlayer;
 })();
 
 window.onload = function(){
 	var SP = new SinglePlayer();
 };
+

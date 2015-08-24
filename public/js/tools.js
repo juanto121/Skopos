@@ -17,7 +17,7 @@ var Tools = (function(){
 
 	tools.notify = function(ev){
 		for(var s in this.subscribers){
-			this.subscribers[s](ev.target.id);
+			this.subscribers[s]({tag:ev.target.id});
 		}
 	};
 
