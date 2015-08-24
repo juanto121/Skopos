@@ -49,12 +49,6 @@ var SinglePlayer = (function(){
 		}
 	};
 
-	sp.inputAction = function(){
-		/*
-			Handle user input HERE.
-		*/
-	};
-
 	return SinglePlayer;
 })();
 
