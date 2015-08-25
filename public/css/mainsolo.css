@@ -142,6 +142,22 @@ body{
 
 
 
+#youtube_URL
+{
+    display: inline-flex;
+    position: absolute;
+    margin-left: 12px;
+    margin-top: -6px;
+    background-color: #FCDB34;
+}
+
+#url
+{
+    height: 31px;
+    margin-top: 7px;
+}
+
+
 .placeholder{
     color:#c2c2c2;
 }

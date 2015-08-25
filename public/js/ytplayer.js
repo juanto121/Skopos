@@ -30,8 +30,10 @@ var Player = (function(){
 
 	player.changeVideo = function(videoId){
 		console.log(videoId);
-		ytplayer.loadVideoById(videoId,60,"medium");
+		ytplayer.loadVideoById(videoId,0,"medium");
 	};
+
+	
 
 	return Player;
 })();

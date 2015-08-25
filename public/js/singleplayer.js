@@ -29,6 +29,7 @@ var SinglePlayer = (function(){
 	};
 
 	sp.toolAction = function(notification){
+		console.log(notification.tag);
 		if(notification.tag == "download"){
 			var data = this.editor.downloadFormat();
 			$.post("solo",{data:data,name:"filename2.srt"},function(response){
@@ -45,8 +46,16 @@ var SinglePlayer = (function(){
 				});
 		}
 		if(notification.tag == "youtube"){
-			var id = this.toolsBoxElement.querySelector(".url").textContent;
-			this.player.changeVideo(id);
+			 //this.toolsBoxElement.querySelector(".youtube_URL").textContent;
+			 //this.toolsBoxElement.querySelector("#youtube_URL").style.visibility='visible';
+			//this.player.changeVideo(id);
+			//TODO: change video title.
+		}
+		if(notification.tag == "youtube_ingreso"){
+			var url = this.toolsBoxElement.querySelector("#url").value;
+			//this.toolsBoxElement.querySelector(".youtube").style.display='none';
+			var idVideo= youtube_parser(url);
+			this.player.changeVideo(idVideo);
 			//TODO: change video title.
 		}
 	};

@@ -36,6 +36,7 @@ var Editor = (function(){
 
 				this.previn.appendChild(inputUser);
 				this.input.textContent = "";
+				fadeIn();
 			}
 		}
 	};
