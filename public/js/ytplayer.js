@@ -33,8 +33,6 @@ var Player = (function(){
 		ytplayer.loadVideoById(videoId,0,"medium");
 	};
 
-	
-
 	return Player;
 })();
 

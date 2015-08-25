@@ -4,7 +4,8 @@ function youtube_parser(url){
 	if (match&&match[7].length==11){
 	    var idVideo=match[7];
 	}else{
-	    console.log("Url incorrecta");
+	    console.log("Url incorrecta - Se pone por defecto un video");
+	    idVideo= "qu1RjE_2zhQ";
 	}
 	return idVideo;
 }

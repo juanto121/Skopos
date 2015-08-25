@@ -115,9 +115,11 @@ body{
 .tool{
     padding: 10px;
     background-color: #fcdb34;
+    
 }
 .tool:hover{
     background-color: #D4D4D4;
+
 }
 
 .center{
