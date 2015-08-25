@@ -56,7 +56,6 @@ var SinglePlayer = (function(){
 			var idVideo= youtube_parser(url);
 			this.player.changeVideo(idVideo);
 			document.querySelector(".prevInput").innerHTML="";
-			//TODO: change video title.
 		}
 	};
 	return SinglePlayer;

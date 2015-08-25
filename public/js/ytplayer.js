@@ -33,9 +33,23 @@ var Player = (function(){
 		ytplayer.loadVideoById(videoId,0,"medium");
 	};
 
+	
 	return Player;
 })();
 
 function onYouTubeIframeAPIReady(){
-	ytplayer = new YT.Player('player');
+	ytplayer = new YT.Player('player',
+		{
+			 events: {
+      					'onStateChange': onPlayerStateChange
+	    			 }
+		});
+}
+
+function onPlayerStateChange( event ) 
+{      
+   if (ytplayer.getPlayerState() == 1) 
+   {
+     document.querySelector("#title_video").innerHTML=ytplayer.getVideoData().title;
+   }
 }
