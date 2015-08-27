@@ -29,8 +29,9 @@ var Player = (function(){
 	
 
 	player.changeVideo = function(videoId){
-		console.log(videoId);
-		ytplayer.loadVideoById(videoId,0,"medium");
+		if(videoId.trim()!==""){
+			ytplayer.loadVideoById(videoId,0,"medium");
+		}
 	};
 
 	
@@ -40,16 +41,14 @@ var Player = (function(){
 function onYouTubeIframeAPIReady(){
 	ytplayer = new YT.Player('player',
 		{
-			 events: {
-      					'onStateChange': onPlayerStateChange
-	    			 }
+			events: {
+						'onStateChange': onPlayerStateChange
+					}
 		});
 }
 
-function onPlayerStateChange( event ) 
-{      
-   if (ytplayer.getPlayerState() == 1) 
-   {
+function onPlayerStateChange( event ){
+   if (ytplayer.getPlayerState() == 1){
      document.querySelector("#title_video").innerHTML=ytplayer.getVideoData().title;
    }
 }
