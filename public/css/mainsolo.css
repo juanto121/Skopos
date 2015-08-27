@@ -179,7 +179,8 @@ body{
     margin-bottom:5px;
 }
 .scoreContainer{
- 
+    width: 48%;
+    height: 100px;
     position:relative;
     display: inline-block;
 
@@ -196,26 +197,38 @@ body{
     margin-top: 32px;
     margin-left: 11px;
 }
+
+/*
 .scoreContainer:before{
-    content:"";
-    width: 0;
+    content: "";
     height: 0;
-    border: 46px solid #212121;
-    border-top: 29px solid transparent;
+    width: 0;
+    border: 78px solid#212121;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    top: -95px;
+    position: absolute;
+    left: 55px;
+}
+*/
+
+.scoreContent{
+    position: absolute;
+    left: 36%;
 }
 
 .scoreText{
-    position: absolute;
     color: white;
     top: 5px;
     left: 26px;
 }
 .score{
-    position: absolute;
-    top: 8px;
-    left: 25px;
     font-size: 50px;
+    margin: 0 auto;
     color: #fcdb34;
+    width: 100px;
+    position: relative;
 }
 
 .timestamp:after{

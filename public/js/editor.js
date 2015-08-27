@@ -19,6 +19,7 @@ var Editor = (function(){
 					text:content,
 					time:seconds
 				});
+
 				
 				var prevInput = document.createElement("div");
 				var inputUser = document.createElement("div");
@@ -34,9 +35,16 @@ var Editor = (function(){
 				inputUser.appendChild(timestamp);
 				inputUser.appendChild(prevInput);
 
-				this.previn.appendChild(inputUser);
+				this.previn.insertBefore(inputUser,this.previn.childNodes[0]);
 				this.input.textContent = "";
-				fadeIn();
+
+
+				if(this.transcription.length > 5){
+					var lastVisibleChild = this.previn.children[4];
+					lastVisibleChild.className = lastVisibleChild.className + " hidden";
+				}
+
+				//fadeIn();
 			}
 		}
 	};
