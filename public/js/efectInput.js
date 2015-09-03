@@ -1,5 +1,5 @@
 function fadeIn() {
-  var transcripcion = document.getElementById("update");
+  var transcripcion = document.getElementsByClassName("transcripcion")[0];
   transcripcion.style.opacity = 0;
 
   
