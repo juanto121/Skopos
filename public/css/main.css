@@ -234,46 +234,6 @@ p{
 }
 
 
-.login_content{
-    position: relative;
-    width: 300px;
-    height: 150px;
-    margin: 0px auto;
-    margin-top: 70px;
-    border-radius: 10px;
-    background: #FFF none repeat scroll 0% 0%;
-    border-top: 32px solid #FF0000;
-    box-shadow: 1px 1px 3px rgba(0, 0, 1, 1);
-}
-
-.wrapper_lightbox
-{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0px;
-  left:0px;
-  margin:0px;
-  background-color: rgba(0,0,0,1);
-
-}
-
-
-.login_window
-{
-    position: absolute;
-    width: 400px;
-    height: 300px;
-    top:50%;
-    left: 50%;
-    margin-left: -200px;
-    margin-top: -150px;
-    background: gray;
-    border-radius: 10px;
-    overflow-y:auto;
-
-}
-
 #button_loggin{
    height: 37.6px;
    width: 92px;
