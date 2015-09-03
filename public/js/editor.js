@@ -44,7 +44,7 @@ var Editor = (function(){
 					lastVisibleChild.className = lastVisibleChild.className + " hidden";
 				}
 
-				//fadeIn();
+				fadeIn();
 			}
 		}
 	};
