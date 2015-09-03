@@ -1,0 +1,10 @@
+{
+	"name":"skopos",
+	"version":"1.0.0",
+	"description":"Transcription for videos made easy",
+	"dependencies":{
+			"express": "4.2.x",
+			"body-parser": "1.13.x"
+		},
+	"engine": "node >= 0.12.1"
+}
