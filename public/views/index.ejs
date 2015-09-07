@@ -21,7 +21,7 @@
             
                 <a href="#modal-one" class="ingresar btn btn-big">Iniciar Sesión</a>
 
-                <!-- Código correspondiente a la ventana Modal que permite el Login de Inicio de Sesion-->
+                <!-- Modal login -->
 
                 <div class="modal" id="modal-one" aria-hidden="true">
                     <div class="modal-dialog" >
@@ -32,31 +32,25 @@
                             <a href="#close" class="btn-close" aria-hidden="true">×</a>
                               
                           </div>
+                            <form action="/login" method="post">
                               <div class="modal-body">
-                              
-                                    <p>Por favor ingrese los siguientes datos para iniciar sesión:</p>
-                           
-                                     <label id="label_user" for="input_user">Usuario:</label>
-                                     <input type="text" id="input_user" placeholder="Usuario"><br>
+                                  
+                                        <label id="label_user" for="input_user">Usuario:</label>
+                                        <input type="text" id="input_user" placeholder="example@mail.com"><br>
+                                        <label id="label_pass"  for="input_pass">Contraseña:</label>
+                                        <input type="password" id="input_pass" placeholder="******"><br>
                                     
-                                    <label id="label_pass"  for="input_pass">Contraseña:</label>
-                                    <input type="password" id="input_pass" placeholder="Password"><br>
                               </div>            
                               
-
                               <div class="modal-footer">
-                                <input type="button" class="btn" id="button_loggin" value="Ingresar">
+                                <button type="submit" class="btn" id="button_loggin">Ingresar</button>
                                 <a href="#close" class="btn">Cancelar</a>                   
                               </div>
-                            
                             </form>
-                        
                         </div>
-
-
                 </div>
                 
-                <!-- Fin Ventana Modal de Login -->
+                <!-- Modal Login -->
 
                 <div class="general_info group center">
                     <div class="col span_1_of_2">

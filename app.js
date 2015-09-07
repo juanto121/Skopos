@@ -15,7 +15,9 @@ var express		= require('express'),
 	route		= require('./app/routes.js');
 
 // Set-up	============================================
-//mongoose.connect(configDB.url);
+mongoose.connect(configDB.url);
+
+require('./config/passport')(passport);
 
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -23,7 +25,6 @@ app.use(bodyParser());
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/public/views');
-app.set('temp', __dirname + '/public/temp');
 
 app.use(session({ secret: process.env.SKOPOS_SESSION_SECRET }));
 app.use(passport.initialize());
