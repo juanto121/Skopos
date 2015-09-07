@@ -18,7 +18,19 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <form action="/signup"></form>
+        <h1>Registro</h1>
+
+        <%if (message.length > 0 ) { %>
+        	<div><%= message %></div>
+        <% } %>
+
+        <form action="/signup" method="post">
+        	<label>Email</label>
+        	<input type="text" name="email">
+        	<label>Contrasena</label>
+        	<input type="password" name="contrasena">
+        	<button type="submit">Registrarse</button>
+        </form>
 
     </body>
 </html>
