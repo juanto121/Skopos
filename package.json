@@ -8,6 +8,7 @@
 		}],
 	"dependencies": {
 			"express": "4.2.x",
+			"ejs" : "0.8.x",
 			"mongoose" : "3.8.x",
 			"passport" : "0.1.x",
 			"passport-local" : "0.1.x",
