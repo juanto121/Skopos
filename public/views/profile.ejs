@@ -1,0 +1,109 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/mainperfil.css">
+        <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+
+        <div id="w">
+        <div id="content" class="clearfix">
+          <div id="userphoto"><img src="../img/avatar.png" alt="default avatar"></div>
+          <h1>Perfil Jugador</h1>
+
+          <nav id="profiletabs">
+            <ul class="clearfix">
+
+              <li><a href="#desc" class="sel">Presentación</a></li>
+              <li><a href="#datos" >Datos Personales</a></li>
+              <li><a href="#transc">Transcripciones</a></li>
+              <li><a href="#amigos">Amigos</a></li>
+              
+            </ul>
+          </nav>
+          
+          <section id="desc" >
+            
+            <p> La exigencia mental de todo jugador culmina frente al arco, lo cual presupone que el arquero tenga características muy especiales precisamente para enfrentar la situación. </p>
+            
+            <p> Su carácter fuerte y su impulso anímico se deberán imponer y esto a su vez le conferirán una disposición óptima para oponerse a la fuerza agresiva del adversario en el foco mismo de las acciones frente al arco. </p>
+          </section>
+          
+          <section id="transc" class="hidden">
+            <p>Transcripciones Realizadas:</p>
+            
+            <div class= "activity">
+
+                <label class="lbl_title"> Titulo Video 1 </label> <br>
+                <img class="video" src="http://img.youtube.com/vi/qObSFfdfe7I/0.jpg"></img>
+                <input type="button" class="btn" id="button_loggin" value="Editar">
+                <input type="button" class="btn" id="button_loggin" value="Descargar">
+
+            </div>
+
+            <div class= "activity">
+
+                <label class="lbl_title"> Titulo Video 2 </label> <br>
+                <img class="video" src="http://img.youtube.com/vi/HOndhtfIXSY/0.jpg"></img>
+                <input type="button" class="btn" id="button_loggin" value="Editar">
+                <input type="button" class="btn" id="button_loggin" value="Descargar">
+
+            </div>
+
+            <div class= "activity">
+                <label class="lbl_title"> Titulo Video 3 </label> <br>
+                <img class="video" src="http://img.youtube.com/vi/0zKU7jDA2nc/0.jpg"></img>
+                <input type="button" class="btn" id="button_loggin" value="Editar">
+                <input type="button" class="btn" id="button_loggin" value="Descargar">
+
+            </div>
+
+          </section>
+          
+          <section id="amigos" class="hidden">
+            <p>Lista de Amigos:</p>
+            
+            <ul id="friendslist" class="clearfix">
+              <li><a href="#"><img src="../img/avatar.png" width="22" height="22"> Username</a></li>
+              <li><a href="#"><img src="../img/avatar.png" width="22" height="22"> SomeGuy123</a></li>
+              <li><a href="#"><img src="../img/avatar.png" width="22" height="22"> PurpleGiraffe</a></li>
+            </ul>
+          </section>
+          
+          <section id="datos" class="hidden">
+            <p>Datos Personales:</p>
+            
+            <p class="setting"><span>Nombre</span> Andres</p>
+
+            <p class="setting"><span>E-mail</span> <%=user.local.email%></p>
+            
+            <p class="setting"><span>Idioma</span> Español(COL)</p>
+            
+            <p class="setting"><span>Status de Perfil </span> Publico</p>
+            
+            <p class="setting"><span>Frecuencia de Actualización</span> Semanal</p>
+            
+          </section>
+        </div><!-- @end #content -->
+      </div><!-- @end #w -->
+    
+       
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="../js/plugins.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/perfil.js"></script>
+
+    </body>
+</html>
