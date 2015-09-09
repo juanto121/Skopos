@@ -53,7 +53,6 @@ module.exports = function(app, passport) {
 
 };
 
-
 // Helpers
 
 function isLoggedIn(req, res, next){

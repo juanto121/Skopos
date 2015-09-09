@@ -9,40 +9,41 @@
 <body>
 
 	<a href="#modal-one" class="ingresar btn btn-big">Iniciar Sesión</a>
-    <%if (message.length > 0 ) { %>
-      <div><%= message %></div>
-    <% } %> 
-    <!-- Modal login -->
+  
+  <%if (message.length > 0 ) { %>
+    <div><%= message %></div>
+  <% } %>
+  
+  <!-- Modal login -->
 
-    <div class="modal" id="modal-one" aria-hidden="true">
-        <div class="modal-dialog" >
-              
-              <div class="modal-header">
-                
-                <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</h4>
-                <a href="#close" class="btn-close" aria-hidden="true">×</a>
-                  
-              </div>
-                        
-                     <form action="/login" method="post">
-                      <div class="modal-body">
-                          
-                                <label id="label_user" for="input_user">Usuario:</label>
-                                <input type="text" id="input_user" placeholder="example@mail.com"><br>
-                                <label id="label_pass"  for="input_pass">Contraseña:</label>
-                                <input type="password" id="input_pass" placeholder="******"><br>
-                            
-                      </div>            
-                      
-                      <div class="modal-footer">
-                        <button type="submit" class="btn" id="button_loggin">Ingresar</button>
-                        <a href="#close" class="btn">Cancelar</a>                   
-                      </div>
-                    </form>
-            </div>
+  <div class="modal" id="modal-one" aria-hidden="true">
+    <div class="modal-dialog" >
+
+      <div class="modal-header">
+
+        <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</h4>
+        <a href="#close" class="btn-close" aria-hidden="true">×</a>
+
+      </div>
+      <form action="/login" method="post">
+        <div class="modal-body">
+
+          <label id="label_user" >Usuario:</label>
+          <input type="text" id="input_user" placeholder="example@mail.com" name="email"><br>
+          <label id="label_pass"  >Contraseña:</label>
+          <input type="password" id="input_pass" placeholder="******" name="password"><br>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn" id="button_loggin">Ingresar</button>
+          <a href="#close" class="btn">Cancelar</a>
+        </div>
+      </form>
     </div>
-    
-    <!-- Modal Login -->
-	
+  </div>
+
+  <!-- Modal Login -->
+
 </body>
 </html>

@@ -1,36 +1,39 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sign up</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Registro</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+</head>
+<body>
 
-        <h1>Registro</h1>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-        <%if (message.length > 0 ) { %>
-        	<div><%= message %></div>
-        <% } %>
+    <h1>Registro</h1>
 
-        <form action="/signup" method="post">
-        	<label>Email</label>
-        	<input type="text" name="email">
-        	<label>Contrasena</label>
-        	<input type="password" name="password">
-        	<button type="submit">Registrarse</button>
-        </form>
+    <%if (message.length > 0 ) { %>
+    <div><%= message %></div>
+    <% } %>
 
-    </body>
+    <form action="/signup" method="post">
+        <label>Email</label>
+        <input type="text" name="email">
+
+        <label>Contrasena</label>
+        <input type="password" name="password">
+
+        <button type="submit">Registrarse</button>
+    </form>
+
+</body>
 </html>

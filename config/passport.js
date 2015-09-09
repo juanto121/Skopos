@@ -1,5 +1,4 @@
 var LocalStrategy		= require('passport-local').Strategy;
-
 var User				= require('../app/models/user');
 
 module.exports = function(passport){
@@ -50,15 +49,17 @@ module.exports = function(passport){
 		usernameField: 'email',
 		passwordField: 'password',
 		passReqToCallback: true
-	}, function(req, email, password, done){
+	},
+	function(req, email, password, done){
 		User.findOne({'local.email' : email}, function(err, user){
+			
 			if(err)
 				return done(err);
 
-			if(!user || !user.validPassword(password))
-				return done(null,false,req.flash('loginMessage', 'No se encontro ningun usuario'));
+			if (!user || !user.validPassword(password))
+                return done(null, false, req.flash('loginMessage', 'No se encontro el usuario/contrasena'));
 
-			return done(null, user);
+            return done(null, user);
 
 		});
 	}));
