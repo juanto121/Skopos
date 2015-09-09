@@ -1,31 +1,44 @@
-var express = require('express'),
-	app  = express(),
-	server = require('http').createServer(app),
-	bodyParser = require('body-parser'),
-	fs = require('fs');
+var express		= require('express'),
+	app			= express(),
+	port		= process.env.PORT || 8080,
+	server		= require('http').createServer(app),
+	mongoose	= require('mongoose'),
+	passport	= require('passport'),
+	flash		= require('connect-flash'),
+
+	morgan		= require('morgan');
+	cookieParser= require('cookie-parser'),
+	bodyParser	= require('body-parser'),
+	session		= require('express-session'),
+	
+	configDB	= require('./config/database.js'),
+	route		= require('./app/routes.js');
+
+// Set-up	============================================
+mongoose.connect(configDB.url);
+
+require('./config/passport')(passport);
+
+app.use(morgan('dev'));
+app.use(cookieParser());
+app.use(bodyParser());
+
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/public/views');
+
+app.use(session({ secret: process.env.SKOPOS_SESSION_SECRET }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.use(express.static( __dirname +'/public'));
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
-server.listen(process.env.PORT || 80);
 
-app.use(express.static( __dirname +'/public'));
+// Routes	============================================
 
-app.get('/',function(req,res){
-  res.sendfile( __dirname + '/public/views/index.html');
+route(app,passport);
+
+// Run		============================================
+
+app.listen(port,function(){
+	console.log("Listening port: " + port);
 });
-
-
-app.route('/solo')
-.get(function(req,res){
-  res.sendfile( __dirname + '/public/views/soloplay.html');
-})
-.post(function(req, res){
-	var path = __dirname + "/public/temp/files/"+req.body.name;
-	fs.writeFile(path, req.body.data, function(err){
-		if(err) throw err;
-		res.writeHead(200,{'content-type':'application/x-subrip'});
-		res.end("/temp/files/"+req.body.name);
-	});
-});
-
