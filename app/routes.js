@@ -35,6 +35,17 @@ module.exports = function(app, passport) {
 	app.post('/profile', isLoggedIn, function(req, res) {
 		console.log("User posted to profile:  " + req.user);
 
+		var user = req.user;
+		var nombre = req.body.nombre;
+		var email = req.body.email;
+		var idioma = req.body.idioma;
+
+		user.local.nombre = nombre;
+		user.local.email=email;
+		user.local.idioma = idioma;
+
+		user.save();
+
 		//El siguiente es un ejemplo de flash messages:
 		req.flash('successUpdate','Actualizacion exitosa');
 		res.redirect('/profile');
