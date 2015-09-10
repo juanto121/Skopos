@@ -37,6 +37,8 @@ module.exports = function(passport){
 
 					newUser.local.email		= email;
 					newUser.local.password	= newUser.generateHash(password);
+					newUser.local.nombre	= "Usuario";
+					newUser.local.idioma	= "Español (CO)";
 
 					newUser.save(function(err) {
 						if(err)

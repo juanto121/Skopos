@@ -86,20 +86,27 @@
     
     <section id="datos" class="hidden">
       <p>Datos Personales:</p>
-      
-      <p class="setting"><span>Nombre</span> Andres</p>
 
-      <p class="setting"><span>E-mail</span> <%=user.local.email%></p>
-      
-      <p class="setting"><span>Idioma</span> Español(COL)</p>
-      
-      <p class="setting"><span>Status de Perfil </span> Publico</p>
-      
-      <p class="setting"><span>Frecuencia de Actualización</span> Semanal</p>
+       <form id="profile" action="/profile" method="post">
+         
+          <p class="setting"><span>Nombre</span> <%=user.local.nombre%> </p>
+          <p class="setting hidden"><span>Nombre</span> <input type="text" name="nombre" value="<%=user.local.nombre%>"></p>
 
-      <form action="/profile" method="post">
-        <input type="text" name="nombre">
-        <button type="submit"></button>
+          <p class="setting"><span>E-Mail</span> <%=user.local.email%></p>
+          <p class="setting hidden"><span>E-mail</span> <input type="text" name="email" value="<%=user.local.email%>"></p>
+          
+          <p class="setting"><span>Idioma</span> <%=user.local.idioma%></p>
+          <p class="setting hidden"><span>Idioma</span> <input type="text" name="idioma" value="<%=user.local.idioma%>"></p>
+  
+        <div id="actualizarInfo" class="actualizar">
+            <span class="button_estado" onClick="cambiarEstado()">Actualizar
+             Info <img src="../img/edit.png" alt="Edit"></span>
+        </div>
+        <div id="cambios" class=" hidden cambios">
+            <button  type="submit">Ingresar Cambios</button>
+            <span class="button_estado" onClick="estadoInicial()">Cancelar</span>
+      </div>
+
       </form>
 
     </section>
