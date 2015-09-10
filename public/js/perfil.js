@@ -14,3 +14,27 @@
         $(newcontent).removeClass('hidden');
       });
     });
+
+    function cambiarEstado()
+    {
+       $('#profile p').each(function(){
+          if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+          else { $(this).removeClass('hidden');}
+        });
+
+       $('#cambios').removeClass('hidden');
+       $('#actualizarInfo').addClass('hidden');
+
+    }
+
+     function estadoInicial()
+    {
+       $('#profile p').each(function(){
+          if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+          else { $(this).removeClass('hidden');}
+        });
+
+       $('#cambios').addClass('hidden');
+       $('#actualizarInfo').removeClass('hidden');
+
+    }

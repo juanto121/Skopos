@@ -346,6 +346,33 @@ html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
 
 
+.cambios
+{
+  text-align: center;
+  font-size: 14px;
+  padding: 8px;
+  margin-bottom: -26px;
+}
+
+ .actualizar 
+{
+  text-align: center;
+  font-size: 14px;
+  padding: 11px;
+  margin-bottom: -23px;
+
+}
+
+.button_estado
+{
+  color: inherit;
+  cursor: pointer;
+  text-transform: none;
+  overflow: visible;
+  font: inherit;
+  margin: 0px;
+}
+
 
 /* ==========================================================================
    Helper classes
