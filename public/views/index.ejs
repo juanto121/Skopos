@@ -16,22 +16,24 @@
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
- 
+    <nav class="topnav">
+        <div class="right">
+            <a href="#modal-one" class="btn btn-big">Iniciar Sesión</a>
+            <a href="/signup" class="btn btn-big">Registrarse</a>
+        </div>
+    </nav>
+
     <h1 class="huge">S<span class="yellow">K</span>OPOS</h1>
     
-    <a href="#modal-one" class="ingresar btn btn-big">Iniciar Sesión</a>
-
     <!-- Modal login -->
 
     <div class="modal" id="modal-one" aria-hidden="true">
         <div class="modal-dialog" >
-          
           <div class="modal-header">
-            
             <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</h4>
             <a href="#close" class="btn-close" aria-hidden="true">×</a>
-            
         </div>
+
         <form action="/login" method="post">
             <div class="modal-body">
 

@@ -98,6 +98,16 @@ body{
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+.topnav{
+  position: relative;
+  display: block;
+  margin:10px;
+}
+
+.right{
+  position: absolute;
+  right: 10px;
+}
 
 .huge{
     font-family: 'Roboto Condensed', sans-serif;
@@ -253,11 +263,6 @@ p{
   margin-left: 55px;
 }
 
-.ingresar
-{
-  left: 45%;
-  top: -3%;
-}
 
 #input_user{
    margin-top: 4px;
@@ -273,22 +278,22 @@ p{
 }
 
 .btn {
-  background: #428bca;
-  border: #357ebd solid 1px;
+  background: #FFF;
+  border: #2C2C2A solid 1px;
   border-radius: 3px;
-  color: #fff;
+  color:black;
   display: inline-block;
   font-size: 14px;
   padding: 8px 15px;
   text-decoration: none;
   text-align: center;
   min-width: 60px;
-  position: relative;
   transition: color .1s ease;
   /* top: 40em;*/
 }
 .btn:hover {
-  background: #357ebd;
+  background: #2C2C2A;
+  color:white;
 }
 .btn.btn-big {
   font-size: 18px;
