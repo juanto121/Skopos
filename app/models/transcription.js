@@ -1,10 +1,10 @@
 var mongoose			= require('mongoose');
 
-var transcriptionSchema = mongoose.transcriptionSchema({
+var transcriptionSchema = mongoose.Schema({
 	path: String,
 	videoId: String,
 	author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	creationDate: Date
+	creationDate: {type:Date, default: Date.now}
 });
 
 module.exports	= mongoose.model('Transcription', transcriptionSchema);

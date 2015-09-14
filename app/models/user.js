@@ -1,6 +1,7 @@
 var mongoose	= require('mongoose');
 var bcrypt		= require('bcrypt-nodejs');
 
+//TODO: !Urgent: replace nombre to name, idioma to language
 var userSchema	= mongoose.Schema({
 	local		:{
 		email	:String,

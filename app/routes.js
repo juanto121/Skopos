@@ -1,4 +1,5 @@
 var fs	= require('fs');
+var userc = require('./controllers/userController');
 
 module.exports = function(app, passport) {
 	app.get('/',function(req,res){
@@ -35,14 +36,14 @@ module.exports = function(app, passport) {
 	app.post('/profile', isLoggedIn, function(req, res) {
 		console.log("User posted to profile:  " + req.user);
 
-		var user = req.user;
-		var nombre = req.body.nombre;
-		var email = req.body.email;
-		var idioma = req.body.idioma;
+		var user	= req.user;
+		var nombre	= req.body.nombre;
+		var email	= req.body.email;
+		var idioma	= req.body.idioma;
 
-		user.local.nombre = nombre;
-		user.local.email=email;
-		user.local.idioma = idioma;
+		user.local.nombre	= nombre;
+		user.local.email	= email;
+		user.local.idioma	= idioma;
 
 		user.save();
 
@@ -58,6 +59,13 @@ module.exports = function(app, passport) {
 
 	app.get('/solo', function(req,res) {
 			res.render('soloplay.ejs');
+	});
+
+	app.post('/solo', isLoggedIn, function(req, res){
+		userc.saveTranscription(req, function(err){
+			if(err) throw err;
+			console.log("transcription saved");
+		});
 	});
 
 	app.post('/solo/download', function(req, res){

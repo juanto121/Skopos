@@ -65,8 +65,8 @@ var SinglePlayer = (function(){
 			document.querySelector(".prevInput").innerHTML="";
 		}
 		if(notification.tag == "save"){
-			var transcript = editor.getTranscription();
-			$post("solo",{data: transcript}, function(response){
+			var transcript = this.editor.downloadFormat();
+			$.post("solo",{data: transcript}, function(response){
 				//TODO: show message, transcription saved
 				console.log("transcription saved?");
 			});
