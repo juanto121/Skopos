@@ -4,17 +4,30 @@ var Transcription	= require('../models/transcription');
 exports.saveTranscription = function(req, cb){
 	var user			= req.user;
 	var transcript		= req.body.data;
+	var videoId			= req.body.videoId;
 	var path			= saveToFs(transcript);
 	var transcription	= new Transcription();
 	transcription.path		= path+transcription._id;
-	transcription.videoId	= "";
+	transcription.videoId	= videoId;
 	transcription.author	= user._id;
-	user.save(function(err){
+	
+	transcription.save(function(err){
 		if(err) cb(err);
-		transcription.save(function(err){
-			if(err) cb(err);
-			cb();
-		});
+		cb();
+	});
+
+	user.transcriptions.push(transcription);
+
+	user.save(cb);
+};
+
+exports.getTranscriptions = function(req, cb){
+	var user = req.user;
+	Transcription
+	.find({author : user._id})
+	.exec(function(err, transcript){
+		if(err) console.log("Error while getting transcriptions");
+		return cb(transcript);
 	});
 };
 

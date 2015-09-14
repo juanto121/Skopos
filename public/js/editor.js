@@ -20,7 +20,6 @@ var Editor = (function(){
 					time:seconds
 				});
 
-				
 				var prevInput = document.createElement("div");
 				var inputUser = document.createElement("div");
 				var timestamp = document.createElement("div");

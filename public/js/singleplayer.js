@@ -65,8 +65,11 @@ var SinglePlayer = (function(){
 			document.querySelector(".prevInput").innerHTML="";
 		}
 		if(notification.tag == "save"){
+
 			var transcript = this.editor.downloadFormat();
-			$.post("solo",{data: transcript}, function(response){
+			var videoId = this.player.getVideoId();
+
+			$.post("solo",{data: transcript, videoId: videoId}, function(response){
 				//TODO: show message, transcription saved
 				console.log("transcription saved?");
 			});

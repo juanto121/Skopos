@@ -26,7 +26,10 @@ var Player = (function(){
 	player.getCurrentTime = function(){
 		return ytplayer.getCurrentTime();
 	};
-	
+
+	player.getVideoId = function(){
+		return ytplayer.getVideoData().video_id;
+	};
 
 	player.changeVideo = function(videoId){
 		if(videoId.trim()!==""){

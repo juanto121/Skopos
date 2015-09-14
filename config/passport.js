@@ -23,7 +23,6 @@ module.exports = function(passport){
 	},
 
 	function(req, email, password, done) {
-		console.log("Validating: " + email + ", " + password);
 		process.nextTick(function() {
 			User.findOne({ 'local.email' : email }, function(err, user) {
 				if(err){

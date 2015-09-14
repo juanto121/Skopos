@@ -27,9 +27,12 @@ module.exports = function(app, passport) {
 	}));
 
 	app.get('/profile', isLoggedIn, function(req, res) {
-		res.render('profile.ejs', {
-			user : req.user,
-			message:req.flash('successUpdate')
+		userc.getTranscriptions(req, function(transcriptions){
+			res.render('profile.ejs', {
+				user : req.user,
+				transcriptions : transcriptions,
+				message:req.flash('successUpdate')
+			});
 		});
 	});
 
@@ -47,7 +50,6 @@ module.exports = function(app, passport) {
 
 		user.save();
 
-		//El siguiente es un ejemplo de flash messages:
 		req.flash('successUpdate','Actualizacion exitosa');
 		res.redirect('/profile');
 	});
@@ -64,7 +66,6 @@ module.exports = function(app, passport) {
 	app.post('/solo', isLoggedIn, function(req, res){
 		userc.saveTranscription(req, function(err){
 			if(err) throw err;
-			console.log("transcription saved");
 		});
 	});
 
