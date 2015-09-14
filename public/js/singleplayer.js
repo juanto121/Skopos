@@ -38,7 +38,8 @@ var SinglePlayer = (function(){
 	sp.toolAction = function(notification){
 		if(notification.tag == "download"){
 			var data = this.editor.downloadFormat();
-			$.post("solo",{data:data,name:"filename2.srt"},function(response){
+			$.post("solo/download",{data:data},function(response){
+				console.log(response);
 				var iframe;
 				iframe = document.getElementById("download-container");
 				if (iframe === null)
@@ -62,6 +63,13 @@ var SinglePlayer = (function(){
 			var idVideo= youtube_parser(url);
 			this.player.changeVideo(idVideo);
 			document.querySelector(".prevInput").innerHTML="";
+		}
+		if(notification.tag == "save"){
+			var transcript = editor.getTranscription();
+			$post("solo",{data: transcript}, function(response){
+				//TODO: show message, transcription saved
+				console.log("transcription saved?");
+			});
 		}
 	};
 

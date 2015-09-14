@@ -60,23 +60,20 @@ module.exports = function(app, passport) {
 			res.render('soloplay.ejs');
 	});
 
-	app.post('/solo', function(req, res){
-		// name passed in post: req.body.name
-		var filePath = __dirname + "file.srt";
+	app.post('/solo/download', function(req, res){
+		var filePath = __dirname + 'file.srt';
 		fs.writeFile(filePath, req.body.data, function(err){
 			if(err) throw err;
 			res.writeHead(200,{'content-type':'application/x-subrip'});
 			//TODO : return file url.
-			res.end();
+			res.end('temp/files/filename.srt');
 		});
 	});
-
 };
 
 // Helpers
 
 function isLoggedIn(req, res, next){
-
 	if (req.isAuthenticated()){
 		return next();
 	}

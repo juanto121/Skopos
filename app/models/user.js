@@ -7,7 +7,8 @@ var userSchema	= mongoose.Schema({
 		password:String,
 		nombre: String,
 		idioma: String
-	}
+	},
+	transcriptions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Transcription'}]
 });
 
 userSchema.methods.generateHash = function(password) {

@@ -61,6 +61,9 @@ var Editor = (function(){
 	editor.downloadFormat = function(){
 		return this.formatter.format(this.transcription);
 	};
+	editor.getTranscription = function(){
+		return this.transcription;
+	};
 
 	return Editor;
 })();
