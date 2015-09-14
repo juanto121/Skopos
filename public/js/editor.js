@@ -20,7 +20,6 @@ var Editor = (function(){
 					time:seconds
 				});
 
-				
 				var prevInput = document.createElement("div");
 				var inputUser = document.createElement("div");
 				var timestamp = document.createElement("div");
@@ -60,6 +59,9 @@ var Editor = (function(){
 	};
 	editor.downloadFormat = function(){
 		return this.formatter.format(this.transcription);
+	};
+	editor.getTranscription = function(){
+		return this.transcription;
 	};
 
 	return Editor;

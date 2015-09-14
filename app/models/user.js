@@ -1,11 +1,15 @@
 var mongoose	= require('mongoose');
 var bcrypt		= require('bcrypt-nodejs');
 
+//TODO: !Urgent: replace nombre to name, idioma to language
 var userSchema	= mongoose.Schema({
 	local		:{
 		email	:String,
-		password:String
-	}
+		password:String,
+		nombre: String,
+		idioma: String
+	},
+	transcriptions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Transcription'}]
 });
 
 userSchema.methods.generateHash = function(password) {

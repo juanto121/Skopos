@@ -1,0 +1,98 @@
+body{
+	background:rgba(0, 0, 0, 0.30);
+}
+.external_container{
+	background-color: white;
+	position: inherit;
+}
+.internal_container{
+	border-radius: 5px;
+	background-color: white;
+	position:absolute;
+	
+	top: 50%;
+	left: 50%;
+
+	width: 400px;
+
+	margin-left: -200px;
+	margin-top: -200px;
+	
+	text-align: center;
+	padding: 10px;
+}
+
+.in{
+	text-align: left;
+    border: 1px solid #d3d3d3;
+    margin: 2px;
+    width: 100%;
+    border-radius: 3px;
+    position: relative;
+
+}
+
+.in>input{
+	margin: 5px;
+    padding: 10px;
+    padding-left: 59px;
+    outline: none;
+    width: 75%;
+}
+
+.no_border{
+	border-style: none;
+}
+
+.btn {
+  background: #009c95;
+  border: #009c95;solid 1px;
+  border-radius: 3px;
+  color:white;
+  display: inline-block;
+  font-size: 10px;
+  padding: 8px 15px;
+  text-decoration: none;
+  text-align: center;
+  min-width: 60px;
+  transition: color .1s ease;
+  /* top: 40em;*/
+}
+.btn:hover {
+  background: #2C2C2A;
+  color:white;
+}
+.btn.btn-big {
+font-size: 18px;
+    padding: 11px;
+    width: 404px;
+}
+
+.icon{
+	font-family: "FontAwesome";
+	color:#d4d5d6;
+}
+.key-fa:before{
+	content:'\f084';
+	position: absolute;
+    top: 16px;
+    left: 24px;
+}
+.user-fa:before{
+	content:'\f183';
+	position: absolute;
+    top: 16px;
+    left: 24px;
+}
+
+.alert{
+	border-radius: 4px;
+	margin:0 auto;
+	padding: 10px;
+	width:200px;
+	color:#D11800;
+	background-color: #ECA299;
+}
+.yellow{
+	color: #fcdb34;
+}

@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
+    <link rel="stylesheet" href="css/signup.css">
     <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
 </head>
@@ -19,21 +21,27 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <h1>Registro</h1>
-
-    <%if (message.length > 0 ) { %>
-    <div><%= message %></div>
-    <% } %>
-
-    <form action="/signup" method="post">
-        <label>Email</label>
-        <input type="text" name="email">
-
-        <label>Contrasena</label>
-        <input type="password" name="password">
-
-        <button type="submit">Registrarse</button>
-    </form>
+    <div class="external_container">
+        
+ 
+        <div class="internal_container">
+                   <h1> [<span class="yellow">k</span>] Crear cuenta</h1>
+                   <%if (message.length > 0 ) { %>
+                    <div class="alert"><%= message %></div>
+                <% } %>
+            <form action="/signup" method="post">
+                <div class="in">
+                    <i class="icon user-fa"></i>
+                    <input class="no_border" type="text" name="email" placeholder="Correo electronico">
+                </div>
+                <div class="in">
+                    <i class="icon key-fa"></i>
+                    <input class="no_border" type="password" name="password" placeholder="Contrasena">
+                </div>
+                <button class="btn btn-big" type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
