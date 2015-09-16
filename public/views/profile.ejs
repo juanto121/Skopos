@@ -48,11 +48,11 @@
 
       <%for(var i = 0; i < transcriptions.length; i++){%>
         <div class= "activity">
-          <label class="lbl_title">Transcripcion: <%=transcriptions[i]._id%></label> <br>
-          <img class="video" src="http://img.youtube.com/vi/<%=transcriptions[i].videoId%>/0.jpg"></img>
+          <label class="lbl_title">Transcripcion: <%=transcriptions[i].title_video%> (<%=transcriptions[i]._id%>)</label> <br>
+          <a href= "/solo?idVideo=<%=transcriptions[i].videoId%>&titulo=<%=transcriptions[i].title_video%>"/>  <img class="video" src="http://img.youtube.com/vi/<%=transcriptions[i].videoId%>/0.jpg"></img> </a>
           <input type="button" class="btn" value="Editar">
           <input type="button" class="btn" value="Descargar">
-          <label><%=transcriptions[i].creationDate%></label>
+          <label class="date_style"><%=transcriptions[i].creationDate%></label>
         </div>
       <% } %>
 

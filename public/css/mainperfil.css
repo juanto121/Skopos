@@ -373,6 +373,14 @@ html[xmlns] .clearfix { display: block; }
   margin: 0px;
 }
 
+.date_style
+{
+  margin-left: 0px !important;
+  text-align: center ;
+  width: 300px;
+  margin-top: 32px !important;
+}
+
 
 /* ==========================================================================
    Helper classes

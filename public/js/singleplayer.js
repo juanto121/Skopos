@@ -68,8 +68,11 @@ var SinglePlayer = (function(){
 
 			var transcript = this.editor.downloadFormat();
 			var videoId = this.player.getVideoId();
+			var titulo =  document.querySelector("#title_video").textContent;
 
-			$.post("solo",{data: transcript, videoId: videoId}, function(response){
+			console.log(titulo);
+
+			$.post("solo",{data: transcript, videoId: videoId, title_video: titulo}, function(response){
 				//TODO: show message, transcription saved
 				console.log("transcription saved?");
 			});

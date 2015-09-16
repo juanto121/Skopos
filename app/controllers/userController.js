@@ -3,6 +3,7 @@ var Transcription	= require('../models/transcription');
 
 exports.saveTranscription = function(req, cb){
 	var user			= req.user;
+	var titulo          = req.body.title_video;
 	var transcript		= req.body.data;
 	var videoId			= req.body.videoId;
 	var path			= saveToFs(transcript);
@@ -10,6 +11,7 @@ exports.saveTranscription = function(req, cb){
 	transcription.path		= path+transcription._id;
 	transcription.videoId	= videoId;
 	transcription.author	= user._id;
+	transcription.title_video	= titulo;
 	
 	transcription.save(function(err){
 		if(err) cb(err);

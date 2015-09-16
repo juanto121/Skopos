@@ -60,7 +60,15 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/solo', function(req,res) {
-			res.render('soloplay.ejs');
+		    var idVideo = req.param('idVideo');
+		    var titulo = req.param('titulo');
+		    if(!idVideo)
+		    {
+		    	idVideo= "s4HdeJctq-A";
+		    	titulo="Making Pi Charts";
+		    }
+		    	
+			res.render('soloplay.ejs', { idVideo: idVideo , titulo: titulo});
 	});
 
 	app.post('/solo', isLoggedIn, function(req, res){
