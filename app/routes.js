@@ -59,7 +59,7 @@ module.exports = function(app, passport) {
 		res.redirect('/');
 	});
 
-	app.get('/solo', function(req,res) {
+	app.get('/solo',isLoggedIn, function(req,res) {
 		    var idVideo = req.param('idVideo');
 		    var titulo = req.param('titulo');
 		    if(!idVideo)
