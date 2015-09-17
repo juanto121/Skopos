@@ -2,6 +2,9 @@ var fs	= require('fs');
 var userc = require('./controllers/userController');
 
 module.exports = function(app, passport) {
+
+	/* ============================ PUBLIC USERS ============================*/
+
 	app.get('/',function(req,res){
 		res.render('index.ejs');
 	});
@@ -26,64 +29,60 @@ module.exports = function(app, passport) {
 		failureFlash	: true
 	}));
 
-	app.get('/profile', isLoggedIn, function(req, res) {
-		userc.getTranscriptions(req, function(transcriptions){
-			res.render('profile.ejs', {
-				user : req.user,
-				transcriptions : transcriptions,
-				message:req.flash('successUpdate')
-			});
-		});
-	});
-
-	app.post('/profile', isLoggedIn, function(req, res) {
-		console.log("User posted to profile:  " + req.user);
-
-		var user	= req.user;
-		var nombre	= req.body.nombre;
-		var email	= req.body.email;
-		var idioma	= req.body.idioma;
-
-		user.local.nombre	= nombre;
-		user.local.email	= email;
-		user.local.idioma	= idioma;
-
-		user.save();
-
-		req.flash('successUpdate','Actualizacion exitosa');
-		res.redirect('/profile');
-	});
 
 	app.get('/logout', function(req, res) {
 		req.logout();
 		res.redirect('/');
 	});
 
-	app.get('/solo',isLoggedIn, function(req,res) {
-		    var idVideo = req.param('idVideo');
-		    var titulo = req.param('titulo');
-		    if(!idVideo)
-		    {
-		    	idVideo= "s4HdeJctq-A";
-		    	titulo="Making Pi Charts";
-		    }
-		    	
-			res.render('soloplay.ejs', { idVideo: idVideo , titulo: titulo});
+	app.get('/solo', function(req,res) {
+		res.render('soloplay.ejs',{transcription:false});
 	});
 
-	app.post('/solo', isLoggedIn, function(req, res){
-		userc.saveTranscription(req, function(err){
-			if(err) throw err;
-		});
-	});
-
-	app.post('/solo/download', function(req, res){
+		/*
+		TODO: this route should not be a route
+		because if user is logged in it will change.
+	*/
+	app.post('/solo/:id*?/download', function(req, res){
 		var filePath = __dirname + 'file.srt';
 		fs.writeFile(filePath, req.body.data, function(err){
 			if(err) throw err;
 			res.writeHead(200,{'content-type':'application/x-subrip'});
 			//TODO : return file url.
 			res.end('temp/files/filename.srt');
+		});
+	});
+
+	/* ============================ LOGGED USERS ============================*/
+
+	app.get('/profile', isLoggedIn, function(req, res) {
+		userc.getTranscriptions(req, function(transcriptions){
+			res.render('profile.ejs', {
+				user : req.user,
+				transcriptions : transcriptions,
+				message:req.flash('updateStatus')
+			});
+		});
+	});
+
+	app.post('/profile', isLoggedIn, function(req, res) {
+		console.log("User posted to profile:  " + req.user);
+		userc.updateUserInfo(req,function(err){
+			if(err) req.flash('updateStatus','No se pudo realizar la actualizacion');
+			else req.flash('updateStatus','Actualizacion exitosa');
+			res.redirect('/profile');
+		});
+	});
+
+	app.get('/solo/:id', isLoggedIn, function(req, res){
+		userc.getTranscriptionById(req.params.id,function(transcript){
+			res.render('soloplay.ejs',{transcription:transcript});
+		});
+	});
+
+	app.post('/solo:id', isLoggedIn, function(req, res){
+		userc.saveTranscription(req, function(err){
+			if(err) throw err;
 		});
 	});
 };
