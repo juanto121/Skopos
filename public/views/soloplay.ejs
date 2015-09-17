@@ -24,9 +24,6 @@
                     <i id="download" class="fa fa-download fa-2x"></i>
                 </div>
                 <div class="tool">
-                    <div  id="settings" class="settings fa fa-cog fa-2x"></div>
-                </div>
-                <div class="tool">
                     <i  id="youtube" class="youtube fa fa-youtube  fa-2x"></i>
                     <div id="youtube_URL" class="visibility">
                         <div class="tool info_youtube">
@@ -35,13 +32,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="tool">
-                    <!-- TODO: Do not show save to anonymous user, or ask for login -->
-                    <div id="save" class="save fa fa-floppy-o fa-2x"></div>
-                </div>
-                <div class="tool">
-                    <div id="trash" class="trash fa fa-trash-o fa-2x"></div>
-                </div>
+                <!--TODO: change for asking to login-->
+                <%if(transcription){%>
+                    <div class="tool">
+                        <div id="save" class="save fa fa-floppy-o fa-2x"></div>
+                    </div>
+                    <div class="tool">
+                        <div id="trash" class="trash fa fa-trash-o fa-2x"></div>
+                    </div>
+                <%}%>
             </div>
 
             <%if(transcription){%>
@@ -94,7 +93,7 @@
                 </div>
 
                 <div class="currentInput inputContainer" contenteditable="true" spellcheck="false">
-                    <div class="placeholder">Start typing here!</div>
+                    <div class="placeholder">Empiece escribiendo aqui!</div>
                 </div>
                 <div id="update">
                     <div class="prevInput"></div>

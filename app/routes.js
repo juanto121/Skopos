@@ -80,7 +80,9 @@ module.exports = function(app, passport) {
 		});
 	});
 
-	app.post('/solo:id', isLoggedIn, function(req, res){
+	app.post('/solo/:id*?', isLoggedIn, function(req, res){
+		//TODO: Get the id and pass it through, if id is
+		//used then save to the transcription. All if there is even an id.
 		userc.saveTranscription(req, function(err){
 			if(err) throw err;
 		});

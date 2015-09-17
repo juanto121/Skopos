@@ -29,6 +29,8 @@ exports.saveTranscription = function(req, cb){
 	transcription.author	= user._id;
 	transcription.title_video	= titulo;
 	
+	//TODO: is cb calling itself twice?
+
 	transcription.save(function(err){
 		if(err) cb(err);
 		cb();
