@@ -45,11 +45,13 @@
     
     <section id="transc" class="hidden">
       <p>Transcripciones Realizadas:</p>
-
       <%for(var i = 0; i < transcriptions.length; i++){%>
         <div class= "activity">
-          <label class="lbl_title">Transcripcion: <%=transcriptions[i].title_video%> (<%=transcriptions[i]._id%>)</label> <br>
-          <a href= "/solo?idVideo=<%=transcriptions[i].videoId%>&titulo=<%=transcriptions[i].title_video%>"/>  <img class="video" src="http://img.youtube.com/vi/<%=transcriptions[i].videoId%>/0.jpg"></img> </a>
+          <label class="lbl_title">Transcripcion:<%=transcriptions[i].title_video%></label><br>
+          <a href='/solo/<%=transcriptions[i]._id%>'/>
+            <img class="video" src="http://img.youtube.com/vi/<%=transcriptions[i].videoId%>/0.jpg">
+            </img>
+          </a>
           <input type="button" class="btn" value="Editar">
           <input type="button" class="btn" value="Descargar">
           <label class="date_style"><%=transcriptions[i].creationDate%></label>
@@ -70,29 +72,24 @@
     
     <section id="datos" class="hidden">
       <p>Datos Personales:</p>
-
        <form id="profile" action="/profile" method="post">
-         
-          <p class="setting"><span>Nombre</span> <%=user.local.nombre%> </p>
-          <p class="setting hidden"><span>Nombre</span> <input type="text" name="nombre" value="<%=user.local.nombre%>"></p>
+        <p class="setting"><span>Nombre</span> <%=user.local.nombre%></p>
+        <p class="setting hidden"><span>Nombre</span> <input type="text" name="nombre" value="<%=user.local.nombre%>"></p>
 
-          <p class="setting"><span>E-Mail</span> <%=user.local.email%></p>
-          <p class="setting hidden"><span>E-mail</span> <input type="text" name="email" value="<%=user.local.email%>"></p>
+        <p class="setting"><span>E-Mail</span> <%=user.local.email%></p>
+        <p class="setting hidden"><span>E-mail</span> <input type="text" name="email" value="<%=user.local.email%>"></p>
           
-          <p class="setting"><span>Idioma</span> <%=user.local.idioma%></p>
-          <p class="setting hidden"><span>Idioma</span> <input type="text" name="idioma" value="<%=user.local.idioma%>"></p>
+        <p class="setting"><span>Idioma</span> <%=user.local.idioma%></p>
+        <p class="setting hidden"><span>Idioma</span> <input type="text" name="idioma" value="<%=user.local.idioma%>"></p>
   
         <div id="actualizarInfo" class="actualizar">
-            <span class="button_estado" onClick="cambiarEstado()">Actualizar
-             Info <img src="../img/edit.png" alt="Edit"></span>
+            <span class="button_estado" onClick="cambiarEstado()">Actualizar Info <img src="../img/edit.png" alt="Edit"></span>
         </div>
         <div id="cambios" class=" hidden cambios">
             <button  type="submit">Ingresar Cambios</button>
             <span class="button_estado" onClick="estadoInicial()">Cancelar</span>
-      </div>
-
+        </div>
       </form>
-
     </section>
   </div><!-- @end #content -->
 </div><!-- @end #w -->
