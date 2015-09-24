@@ -11,6 +11,8 @@ var SinglePlayer = (function(){
 		this.player = new Player();
 		this.counter = new CharCounter();
 
+		this.url = document.querySelector(".url");
+		this.edition = document.querySelector(".edition");
 		this.input = document.querySelector(".inputContainer");
 		this.inputHistory = document.querySelector(".prevInput");
 
@@ -29,39 +31,50 @@ var SinglePlayer = (function(){
 		this.counter.addCounterListener(this.updateScore.bind(this));
 		//setInterval(this.counter.keyInput.bind(this.counter),1000);
 
+		this.url.addEventListener("change", this.setVideo.bind(this));
+
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);
 		this.editor.setHistory(this.inputHistory);
 		this.userInput.bindElement(this.input);
 	};
 
+	sp.setVideo = function(){
+		var url = this.url.value;
+		var videoId = this.player.getVideoId();
+		this.player.changeVideo(videoId);
+		this.edition.classList.toggle("hidden");
+		this.url.classList.toggle("hidden");
+	};
+
 	sp.toolAction = function(notification){
 		if(notification.tag == "download"){
 			var data = this.editor.downloadFormat();
 			$.post("solo/download",{data:data},function(response){
-				console.log(response);
-				var iframe;
-				iframe = document.getElementById("download-container");
-				if (iframe === null)
-				{
-					iframe = document.createElement('iframe');
-					iframe.id = "download-container";
-					iframe.style.visibility = 'hidden';
-					document.body.appendChild(iframe);
-				}
-				iframe.src = response;
-				});
+			console.log(response);
+			var iframe;
+			iframe = document.getElementById("download-container");
+			if (iframe === null)
+			{
+				iframe = document.createElement('iframe');
+				iframe.id = "download-container";
+				iframe.style.visibility = 'hidden';
+				document.body.appendChild(iframe);
+			}
+			iframe.src = response;
+			});
 		}
 		if(notification.tag == "youtube"){
-			this.toolsBoxElement.querySelector("#youtube_URL").style.visibility='visible';
-			this.toolsBoxElement.querySelector("#youtube").style.visibility='hidden';
+			this.toolsBoxElement.querySelector("#youtube_URL").classList.toggle('hidden');
+			this.toolsBoxElement.querySelector("#youtube").classList.toggle('hidden');
 		}
 		if(notification.tag == "youtube_ingreso"){
 			var url = this.toolsBoxElement.querySelector("#url").value;
-			this.toolsBoxElement.querySelector("#youtube_URL").style.visibility='hidden';
-			this.toolsBoxElement.querySelector("#youtube").style.visibility='visible';
-			var idVideo= youtube_parser(url);
+			this.toolsBoxElement.querySelector("#youtube_URL").classList.toggle('hidden');
+			this.toolsBoxElement.querySelector("#youtube").classList.toggle('hidden');
+			var idVideo= this.player.parseUrl(url);
 			this.player.changeVideo(idVideo);
+
 			document.querySelector(".prevInput").innerHTML="";
 		}
 		if(notification.tag == "save"){

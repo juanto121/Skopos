@@ -128,6 +128,16 @@ body{
     margin:0 auto;
 }
 
+.urlContainer{
+    text-align: center;
+}
+.url{
+    display: block;
+    font-size: 25px;
+    width: 400px;
+    margin: 0 auto;
+}
+
 .text{
     display: inline-block;
     margin-left: 5px;

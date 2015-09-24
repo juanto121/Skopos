@@ -81,17 +81,24 @@
             <!--TODO: Use partials HERE!-->
             <%}else{%>
                 <div class="center">
+                
+                <div class="urlContainer">
+                    <h1><div class="information">Carga el video de youtube:</div></h1>
+                    <input type="text" class="url" placeholder="www.youtube.com/watch?v=VideoId">
+                </div>
+                <div class="edition hidden">
+
                 <div class="videoContainer">
                     <div  class="videoTitle">
                         <h1 class="huge">
                             <div id="title_video"></div> 
                         </h1>
                     </div>
-                    <div class="videoMedia">
+                      <div class="videoMedia">
                         <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/BEz-vGJvaik?enablejsapi=1&theme=light&showinfo=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-
+                
                 <div class="currentInput inputContainer" contenteditable="true" spellcheck="false">
                     <div class="placeholder">Empiece escribiendo aqui!</div>
                 </div>
@@ -113,6 +120,7 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
             <%}%>
 
@@ -126,7 +134,6 @@
             <script src="../js/srtFormatter.js"></script>
             <script src="../js/formatter.js"></script>
             <script src="../js/tools.js"></script>
-            <script src="../js/youtubeParserVideo.js"></script>
             <script src="../js/characterCounter.js"></script>
         </body>
         </html>
