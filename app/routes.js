@@ -6,7 +6,7 @@ module.exports = function(app, passport) {
 	/* ============================ PUBLIC USERS ============================*/
 
 	app.get('/',function(req,res){
-		res.render('index.ejs');
+		res.render('index.ejs',{user:req.user});
 	});
 
 	app.get('/login', function(req, res) {
@@ -71,6 +71,12 @@ module.exports = function(app, passport) {
 			if(err) req.flash('updateStatus','No se pudo realizar la actualizacion');
 			else req.flash('updateStatus','Actualizacion exitosa');
 			res.redirect('/profile');
+		});
+	});
+
+	app.get('/solo/new', isLoggedIn, function(req, res){
+		userc.newTranscription(req, function(transcription){
+			res.render('soloplay.ejs',{transcription:transcription});
 		});
 	});
 

@@ -102,6 +102,7 @@ body{
   position: relative;
   display: block;
   margin:10px;
+  height: 1px;
 }
 
 .right{
@@ -143,16 +144,48 @@ body{
     transform: translate(-50%,-50%) rotate(45deg);
     box-shadow:0 0 0 20px rgba(255,255,255,1)
 }
+.menu_link{
+  text-decoration: none;
+}
+.menu_link:visited{
+  color:#212121;
+}
 .infobox{
     padding: 10px;
-    
+    cursor: pointer;
+}
+.icon_tr{
+    position: absolute;
+    top: 25px;
+    left: 42px;
+}
+.icon_br{
+    position: absolute;
+    top: 85px;
+    left: 42px;
+}
+.icon_tl{
+    position: absolute;
+    top: 26px;
+    left: 32px;
+}
+.icon_bl{
+    position: absolute;
+    top: 85px;
+    left: 34px;
 }
 .description{
     padding: 1px;
     
 }
-.group:hover>.icon{
+
+.group{
+      display: flex;
+}
+
+.group:hover>div.icon{
     background-color: #2C2C2A;
+    color:white;
 }
 .group:hover>.description{
     background-color: #fcdb34;
@@ -296,9 +329,9 @@ p{
   color:white;
 }
 .btn.btn-big {
-  font-size: 18px;
-  padding: 15px 20px;
-  min-width: 100px;
+    font-size: 14px;
+    padding: 5px 7px;
+    min-width: 97px;
 }
 .btn-close {
   color: #aaaaaa;

@@ -11,6 +11,7 @@
     <!-- Place favicon.ico in the root directory -->
     <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
@@ -18,8 +19,12 @@
 <body>
     <nav class="topnav">
         <div class="right">
-            <a href="#modal-one" class="btn btn-big">Iniciar Sesión</a>
-            <a href="/signup" class="btn btn-big">Registrarse</a>
+            <%if(user){%>
+                <a href="/profile">Mi cuenta</a>
+            <%}else{%>
+                <a href="#modal-one" class="btn btn-big">Iniciar Sesión</a>
+                <a href="/signup" class="btn btn-big">Registrarse</a>
+            <%}%>
         </div>
     </nav>
 
@@ -56,43 +61,44 @@
 
 <div class="general_info group center">
     <div class="col span_1_of_2">
+        <a href="/solo" class="menu_link">
         <div class="top infobox">
             <div class="group">
                 <div class="col description span_3_of_4">
                     <div class="content_left">
-                        <h5>What</h5>
+                        <h2>Transcribe</h2>
                         <p>
-                            Magna cetero salutatus has in, vix eu velit senserit, noster argumentum ne vix. Altera laoreet posidonium.
-                            lorem
+                            Sabemos lo dificil que es transcribir contenido, Skopos facilita la labor.
                         </p>
                     </div>
                 </div>
-                <div class="col icon span_1_of_4"></div>
+                <div class="col icon span_1_of_4"><i class="fa fa-keyboard-o fa-2x icon_tl"></i></div>
             </div>
         </div>
+        </a>
         <div class="bottom infobox">
             <div class="group">
                 <div class="col description span_3_of_4">
                     <div class="content_left">
-                        <h5>How</h5>
+                        <h2>Compite</h2>
                         <p>
-                            Magna cetero salutatus has in, vix eu velit senserit, noster argumentum ne vix. Altera laoreet posidonium.
+                            ¿Crees que escribes más rápido que tu oponente? Ponte a prueba y ayudanos a transcribir el mundo.
                         </p>
                     </div>
                 </div>
-                <div class="col icon span_1_of_4"></div>
+                <div class="col icon span_1_of_4"> <i class="fa fa-trophy fa-2x icon_bl"></i> </div>
             </div>
         </div>
     </div>
     <div class="col span_1_of_2">
      <div class="top infobox">
         <div class="group">
-            <div class="col icon span_1_of_4"></div>
+            <div class="col icon span_1_of_4"><i class="fa fa-gamepad fa-2x icon_tr"></i></div>
             <div class="col description span_3_of_4">
                 <div class="content_right">
-                    <h5>Why</h5>
+                    <h2>Juega</h2>
                     <p>
-                        Magna cetero salutatus has in, vix eu velit senserit, noster argumentum ne vix. Altera laoreet posidonium.
+                        Escribir de forma agil es una habilidad, entre más rapido seas más puntos ganas.
                     </p>
                 </div>
             </div>
@@ -101,12 +107,12 @@
     
     <div class="bottom infobox">
        <div class="group">
-        <div class="col icon span_1_of_4"></div>
+        <div class="col icon span_1_of_4"><i class="fa fa-graduation-cap fa-2x icon_br"></i></div>
         <div class="col description span_3_of_4">
             <div class="content_right">
-                <h5>Who</h5>
+                <h2>Aprende</h2>
                 <p>
-                    Magna cetero salutatus has in, vix eu velit senserit, noster argumentum ne vix. Altera laoreet posidonium.
+                    Incrementa tus habilidades de escucha en el idioma que tanto quieres hablar.
                 </p>
             </div>
         </div>

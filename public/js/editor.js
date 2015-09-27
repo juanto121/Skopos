@@ -58,7 +58,9 @@ var Editor = (function(){
 		this.player = player;
 	};
 	editor.downloadFormat = function(){
-		return this.formatter.format(this.transcription);
+		if(this.transcription.length!==0){
+			return this.formatter.format(this.transcription);
+		}
 	};
 	editor.getTranscription = function(){
 		return this.transcription;
