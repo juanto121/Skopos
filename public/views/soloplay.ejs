@@ -11,129 +11,160 @@
     <!-- Place favicon.ico in the root directory -->
     <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/mainsolo.css">
+    <link rel="stylesheet" href="../css/vendor/side-menu.css">
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-            <![endif]-->
-            <div class="toolbox">
-                <div class="tool">
-                    <i id="download" class="fa fa-download fa-2x"></i>
-                </div>
-                <div class="tool">
-                    <i  id="youtube" class="youtube fa fa-youtube  fa-2x"></i>
-                    <div id="youtube_URL" class="visibility">
-                        <div class="tool info_youtube">
-                            <i  id="youtube_ingreso" title="Play - Click Me !!" class="youtube fa fa-youtube-play fa-2x"></i>
-                            <input type="text" id="url" placeholder="Ingresar URL">
-                        </div>
-                    </div>
-                </div>
-                <!--TODO: change for asking to login-->
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="layout">
+
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+    <div id="menu"  class="pure-menu custom-restricted-width">
+        
+            <span class=" menu-title pure-menu-heading">
+                <a class=" menu-heading-home" href="/">S[k]opos</a>
+
+            </span>
+            <ul class="pure-menu-list">
+
                 <%if(transcription){%>
-                    <div class="tool">
-                        <div id="save" class="save fa fa-floppy-o fa-2x"></div>
-                    </div>
-                    <div class="tool">
-                        <div id="trash" class="trash fa fa-trash-o fa-2x"></div>
-                    </div>
+                <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Login</a></li>
+                <%}else{%>
+                <li class="pure-menu-item"><a href="/profile" class="pure-menu-link">Mi cuenta</a></li>
                 <%}%>
+                <li class="pure-menu-item"><a href="/solo" class="pure-menu-link">Nueva Transcripcion</a></li>
+                <li class="menu-title pure-menu-heading">Tools</li>
+                <div class="toolbox">
+                    <div id="download" class="tool">
+                        <i  class="fa fa-download "></i>
+                        Descargar
+                    </div>
+                    <!--TODO: change for asking to login-->
+                    <%if(transcription){%>
+                    <div id="save" class="tool">
+                        <i  class="save fa fa-floppy-o"></i>
+                        Guardar
+                    </div>
+                    <div id="trash" class="tool">
+                        <i  class="trash fa fa-trash-o"></i>
+                        Eliminar
+                    </div>
+                    <%}else{%>
+                    <div id="youtube" class="tool">
+                        <i class="youtube fa fa-youtube"></i>
+                        Nuevo video
+                    </div>
+                    <%}%>
+                </div>
+                
+            </ul>
+        
+    </div>
+<div id="main">
+    <%if(transcription){%>
+    <div class="center">
+        <div class="videoContainer">
+            <div  class="videoTitle">
+                <h1 class="huge">
+                    <div id="title_video" ><%=transcription.title_video%></div> 
+                </h1>
             </div>
-
-            <%if(transcription){%>
-            <div class="center">
-                <div class="videoContainer">
-                    <div  class="videoTitle">
-                        <h1 class="huge">
-                            <div id="title_video" ><%=transcription.title_video%></div> 
-                        </h1>
-                    </div>
-                    <div class="videoMedia">
-                        <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/<%=transcription.videoId%>?enablejsapi=1&theme=light&showinfo=0" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <div class="currentInput inputContainer" contenteditable="true" spellcheck="false">
-                    <div class="placeholder">Start typing here!</div>
-                </div>
-                <div id="update">
-                    <div class="prevInput"></div>
-                </div>
-                
-                <div class="stats">
-                    <div class="scoreContainer">
-                        <div class="scoreContent">
-                            <div class="scoreText">Score</div>
-                            <div id="score" class="score">0</div>
-                        </div>
-                    </div>
-                    <div class="scoreContainer">
-                        <div class="scoreContent">
-                            <div class="scoreText">CPM</div>
-                            <div id="CPM" class="score">0</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="videoMedia">
+                <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/<%=transcription.videoId%>?enablejsapi=1&theme=light&showinfo=0" frameborder="0" allowfullscreen></iframe>
             </div>
-            <!--TODO: Use partials HERE!-->
-            <%}else{%>
-                <div class="center">
-                
-                <div class="urlContainer">
-                    <h1><div class="information">Carga el video de youtube:</div></h1>
-                    <input type="text" class="url" placeholder="www.youtube.com/watch?v=VideoId">
-                </div>
-                <div class="edition hidden">
+        </div>
 
-                <div class="videoContainer">
-                    <div  class="videoTitle">
-                        <h1 class="huge">
-                            <div id="title_video"></div> 
-                        </h1>
-                    </div>
-                      <div class="videoMedia">
-                        <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/BEz-vGJvaik?enablejsapi=1&theme=light&showinfo=0" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                
-                <div class="currentInput inputContainer" contenteditable="true" spellcheck="false">
-                    <div class="placeholder">Empiece escribiendo aqui!</div>
-                </div>
-                <div id="update">
-                    <div class="prevInput"></div>
-                </div>
-                
-                <div class="stats">
-                    <div class="scoreContainer">
-                        <div class="scoreContent">
-                            <div class="scoreText">Score</div>
-                            <div id="score" class="score">0</div>
-                        </div>
-                    </div>
-                    <div class="scoreContainer">
-                        <div class="scoreContent">
-                            <div class="scoreText">CPM</div>
-                            <div id="CPM" class="score">0</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="currentInput inputContainer" contenteditable="true" spellcheck="false">
+            <div class="placeholder">Start typing here!</div>
+        </div>
+        <div id="update">
+            <div class="prevInput"></div>
+        </div>
+
+        <div class="stats">
+            <div class="scoreContainer">
+                <div class="scoreContent">
+                    <div class="scoreText">Score</div>
+                    <div id="score" class="score">0</div>
                 </div>
             </div>
-            <%}%>
+            <div class="scoreContainer">
+                <div class="scoreContent">
+                    <div class="scoreText">CPM</div>
+                    <div id="CPM" class="score">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--TODO: Use partials HERE!-->
+    <%}else{%>
+    <div class="center">
 
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-            <script src="../js/plugins.js"></script>
-            <script src="../js/singleplayer.js"></script>
-            <script src="../js/userinput.js"></script>
-            <script src="../js/editor.js"></script>
-            <script src="../js/ytplayer.js"></script>
-            <script src="../js/efectInput.js"></script>
-            <script src="../js/srtFormatter.js"></script>
-            <script src="../js/formatter.js"></script>
-            <script src="../js/tools.js"></script>
-            <script src="../js/characterCounter.js"></script>
-        </body>
-        </html>
+        <div class="urlContainer">
+            <h1><div class="information">Carga el video de youtube:</div></h1>
+            <input type="text" class="url" placeholder="www.youtube.com/watch?v=VideoId">
+        </div>
+
+        <div class="edition hidden">
+
+            <div class="videoContainer">
+                <div  class="videoTitle">
+                    <h1 class="huge">
+                        <div id="title_video"></div> 
+                    </h1>
+                </div>
+                <div class="videoMedia">
+                    <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/BEz-vGJvaik?enablejsapi=1&theme=light&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="currentInput inputContainer" contenteditable="true" spellcheck="false">
+                <div class="placeholder">Empiece escribiendo aqui!</div>
+            </div>
+            <div id="update">
+                <div class="prevInput"></div>
+            </div>
+
+            <div class="stats">
+                <div class="scoreContainer">
+                    <div class="scoreContent">
+                        <div class="scoreText">Score</div>
+                        <div id="score" class="score">0</div>
+                    </div>
+                </div>
+                <div class="scoreContainer">
+                    <div class="scoreContent">
+                        <div class="scoreText">CPM</div>
+                        <div id="CPM" class="score">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%}%>
+</div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="../js/plugins.js"></script>
+<script src="../js/singleplayer.js"></script>
+<script src="../js/userinput.js"></script>
+<script src="../js/editor.js"></script>
+<script src="../js/ytplayer.js"></script>
+<script src="../js/efectInput.js"></script>
+<script src="../js/srtFormatter.js"></script>
+<script src="../js/formatter.js"></script>
+<script src="../js/tools.js"></script>
+<script src="../js/characterCounter.js"></script>
+<script src="../js/vendor/ui.js"></script>
+</body>
+</html>

@@ -145,7 +145,7 @@ body{
 }
 .infobox{
     padding: 10px;
-    
+    cursor: pointer;
 }
 .description{
     padding: 1px;

@@ -99,6 +99,19 @@ body{
     font-family: 'Oxygen', sans-serif;
 }
 
+.menu-title{
+    background: #fcdb34 !important;
+    color:#212121 !important;
+}
+
+.custom-restricted-width {
+    /* Or set the width explicitly: */
+    /* width: 12em !important;*/
+}
+.menu-heading-home{
+    text-decoration: none;
+    color:#212121;
+}
 
 .huge{
     text-align: center;
@@ -106,24 +119,23 @@ body{
 }
 
 .toolbox{
-    position: fixed;
-    display: inline-block;
-    height: 500px;
-    margin:auto;
+    width: 100%;
 }
 
 .tool{
     padding: 10px;
-    background-color: #fcdb34;
-    
 }
 .tool:hover{
-    background-color: #D4D4D4;
-
+cursor: pointer;
+background-color: #AFAFAF;
+}
+.sidebar{
+        position: fixed;
+    top: 0;
+    bottom: 0;
 }
 
 .center{
-    
     max-width:560px;
     margin:0 auto;
 }
@@ -142,6 +154,7 @@ body{
     display: inline-block;
     margin-left: 5px;
 }
+
 .currentInput{
     width:560px;
     text-align: center;
@@ -153,30 +166,10 @@ body{
 }
 
 
-
-#url
-{
-    margin-left: 20px;
-}
-
-.visibility
-{
-    visibility:hidden;
-}
-
-.info_youtube
-{
-    display: inline-flex;
-    position: absolute;
-    margin-left: -10px;
-    margin-top: -43px;
-    padding-left: 10px;
-    background-color: #FCDB34;
-}
-
 .placeholder{
     color:#c2c2c2;
 }
+
 .timestamp{
     text-align: center;
     display: inline-block;
@@ -184,44 +177,25 @@ body{
     background: #fcdb34;
     color: #000;
 }
+
 .transcripcion{
     position:relative;
     margin-bottom:5px;
 }
+
 .scoreContainer{
     width: 48%;
     height: 100px;
     position:relative;
     display: inline-block;
-
     background-color: #212121;
-
- /* width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #212121;
-    font-size: 20px;
-    */
 }
+
 .stats{
     margin-top: 32px;
     margin-left: 11px;
 }
 
-/*
-.scoreContainer:before{
-    content: "";
-    height: 0;
-    width: 0;
-    border: 78px solid#212121;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    top: -95px;
-    position: absolute;
-    left: 55px;
-}
-*/
 
 .scoreContent{
     position: absolute;

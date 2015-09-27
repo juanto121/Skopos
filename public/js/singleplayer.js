@@ -11,6 +11,7 @@ var SinglePlayer = (function(){
 		this.player = new Player();
 		this.counter = new CharCounter();
 
+		this.urlContainer = document.querySelector(".urlContainer");
 		this.url = document.querySelector(".url");
 		this.edition = document.querySelector(".edition");
 		this.input = document.querySelector(".inputContainer");
@@ -31,7 +32,7 @@ var SinglePlayer = (function(){
 		this.counter.addCounterListener(this.updateScore.bind(this));
 		//setInterval(this.counter.keyInput.bind(this.counter),1000);
 
-		this.url.addEventListener("change", this.setVideo.bind(this));
+		if(this.url) this.url.addEventListener("change", this.setVideo.bind(this));
 
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);
@@ -41,13 +42,14 @@ var SinglePlayer = (function(){
 
 	sp.setVideo = function(){
 		var url = this.url.value;
-		var videoId = this.player.getVideoId();
-		this.player.changeVideo(videoId);
-		this.edition.classList.toggle("hidden");
-		this.url.classList.toggle("hidden");
+		var idVideo= this.player.parseUrl(url);
+		this.player.changeVideo(idVideo);
+		this.edition.classList.remove("hidden");
+		this.urlContainer.classList.toggle("hidden");
 	};
 
 	sp.toolAction = function(notification){
+		console.log(notification.tag);
 		if(notification.tag == "download"){
 			var data = this.editor.downloadFormat();
 			$.post("solo/download",{data:data},function(response){
@@ -64,19 +66,20 @@ var SinglePlayer = (function(){
 			iframe.src = response;
 			});
 		}
+
 		if(notification.tag == "youtube"){
-			this.toolsBoxElement.querySelector("#youtube_URL").classList.toggle('hidden');
-			this.toolsBoxElement.querySelector("#youtube").classList.toggle('hidden');
+			this.urlContainer.classList.toggle("hidden");
 		}
+
 		if(notification.tag == "youtube_ingreso"){
 			var url = this.toolsBoxElement.querySelector("#url").value;
 			this.toolsBoxElement.querySelector("#youtube_URL").classList.toggle('hidden');
 			this.toolsBoxElement.querySelector("#youtube").classList.toggle('hidden');
 			var idVideo= this.player.parseUrl(url);
 			this.player.changeVideo(idVideo);
-
 			document.querySelector(".prevInput").innerHTML="";
 		}
+
 		if(notification.tag == "save"){
 
 			var transcript = this.editor.downloadFormat();
