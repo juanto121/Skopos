@@ -19,8 +19,12 @@
 <body>
     <nav class="topnav">
         <div class="right">
-            <a href="#modal-one" class="btn btn-big">Iniciar Sesión</a>
-            <a href="/signup" class="btn btn-big">Registrarse</a>
+            <%if(user){%>
+                <a href="/profile">Mi cuenta</a>
+            <%}else{%>
+                <a href="#modal-one" class="btn btn-big">Iniciar Sesión</a>
+                <a href="/signup" class="btn btn-big">Registrarse</a>
+            <%}%>
         </div>
     </nav>
 
@@ -57,6 +61,7 @@
 
 <div class="general_info group center">
     <div class="col span_1_of_2">
+        <a href="/solo" class="menu_link">
         <div class="top infobox">
             <div class="group">
                 <div class="col description span_3_of_4">
@@ -70,6 +75,7 @@
                 <div class="col icon span_1_of_4"><i class="fa fa-keyboard-o fa-2x icon_tl"></i></div>
             </div>
         </div>
+        </a>
         <div class="bottom infobox">
             <div class="group">
                 <div class="col description span_3_of_4">

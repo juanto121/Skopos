@@ -99,15 +99,7 @@ body{
     font-family: 'Oxygen', sans-serif;
 }
 
-.menu-title{
-    background: #fcdb34 !important;
-    color:#212121 !important;
-}
 
-.custom-restricted-width {
-    /* Or set the width explicitly: */
-    /* width: 12em !important;*/
-}
 .menu-heading-home{
     text-decoration: none;
     color:#212121;

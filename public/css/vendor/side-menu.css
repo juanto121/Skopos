@@ -79,6 +79,7 @@ appears on the left side of the page.
 */
 
 #menu {
+    font-size: 1em;
     margin-left: -200px; /* "#menu" width */
     width: 200px;
     position: fixed;
@@ -94,6 +95,7 @@ appears on the left side of the page.
     All anchors inside the menu should be styled like this.
     */
     #menu a {
+        font-size: 1em;
         color: #999;
         border: none;
         padding: 0.6em 0 0.6em 0.6em;
@@ -128,7 +130,7 @@ appears on the left side of the page.
     */
     #menu .pure-menu-selected,
     #menu .pure-menu-heading {
-        background: #1f8dd6;
+        background: #fcdb34;
     }
         /*
         This styles a link within a selected menu item `<li>`.
@@ -145,6 +147,18 @@ appears on the left side of the page.
         color: #fff;
         margin: 0;
     }
+    .menu-title{
+        color:#212121 !important;
+    }
+
+.custom-restricted-width {
+    /* Or set the width explicitly: */
+    /* width: 12em !important;*/
+}
+.menu-heading-home{
+    text-decoration: none;
+    color:#212121;
+}
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
 
