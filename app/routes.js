@@ -74,6 +74,14 @@ module.exports = function(app, passport) {
 		});
 	});
 
+	app.get('/solo/new', isLoggedIn, function(req, res){
+		userc.newTranscription(req, function(transcription){
+			console.log("Hey!");
+			console.log(transcription);
+			res.render('soloplay.ejs',{transcription:transcription});
+		});
+	});
+
 	app.get('/solo/:id', isLoggedIn, function(req, res){
 		userc.getTranscriptionById(req.params.id,function(transcript){
 			res.render('soloplay.ejs',{transcription:transcript});
@@ -87,7 +95,6 @@ module.exports = function(app, passport) {
 			if(err) throw err;
 		});
 	});
-
 };
 
 // Helpers

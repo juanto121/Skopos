@@ -17,6 +17,11 @@ exports.updateUserInfo = function(req, cb) {
 	});
 };
 
+exports.newTranscription = function(req, cb){
+	var transcription = new Transcription();
+	cb(transcription);
+};
+
 exports.saveTranscription = function(req, cb){
 	var user			= req.user;
 	var titulo          = req.body.title_video;
@@ -35,7 +40,7 @@ exports.saveTranscription = function(req, cb){
 		if(err) cb(err);
 		cb();
 	});
-
+	console.log(user);
 	user.transcriptions.push(transcription);
 
 	user.save(cb);
