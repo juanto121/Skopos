@@ -171,8 +171,14 @@ body{
     padding: 1px;
     
 }
-.group:hover>.icon{
+
+.group{
+      display: flex;
+}
+
+.group:hover>div.icon{
     background-color: #2C2C2A;
+    color:white;
 }
 .group:hover>.description{
     background-color: #fcdb34;
