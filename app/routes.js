@@ -76,8 +76,6 @@ module.exports = function(app, passport) {
 
 	app.get('/solo/new', isLoggedIn, function(req, res){
 		userc.newTranscription(req, function(transcription){
-			console.log("Hey!");
-			console.log(transcription);
 			res.render('soloplay.ejs',{transcription:transcription});
 		});
 	});

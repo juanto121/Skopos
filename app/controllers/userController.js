@@ -40,7 +40,7 @@ exports.saveTranscription = function(req, cb){
 		if(err) cb(err);
 		cb();
 	});
-	console.log(user);
+	
 	user.transcriptions.push(transcription);
 
 	user.save(cb);
