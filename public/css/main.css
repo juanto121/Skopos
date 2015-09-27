@@ -147,6 +147,26 @@ body{
     padding: 10px;
     cursor: pointer;
 }
+.icon_tr{
+    position: absolute;
+    top: 25px;
+    left: 42px;
+}
+.icon_br{
+    position: absolute;
+    top: 85px;
+    left: 42px;
+}
+.icon_tl{
+    position: absolute;
+    top: 26px;
+    left: 32px;
+}
+.icon_bl{
+    position: absolute;
+    top: 85px;
+    left: 34px;
+}
 .description{
     padding: 1px;
     
