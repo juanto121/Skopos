@@ -39,17 +39,17 @@ module.exports = function(app, passport) {
 		res.render('soloplay.ejs',{transcription:false});
 	});
 
-		/*
+	/*
 		TODO: this route should not be a route
 		because if user is logged in it will change.
 	*/
 	app.post('/solo/:id*?/download', function(req, res){
-		var filePath = __dirname + 'file.srt';
+		var filePath = './public/temp/files/file.srt';
 		fs.writeFile(filePath, req.body.data, function(err){
 			if(err) throw err;
 			res.writeHead(200,{'content-type':'application/x-subrip'});
 			//TODO : return file url.
-			res.end('temp/files/filename.srt');
+			res.end('/temp/files/file.srt');
 		});
 	});
 

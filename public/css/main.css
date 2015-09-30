@@ -178,7 +178,9 @@ body{
     padding: 1px;
     
 }
-
+.fa-3x{
+  font-size: 70px;
+}
 .group{
       display: flex;
 }
@@ -269,8 +271,8 @@ td{
 
 .video_min
 {
-   width: 95%;
-   height: 215px;
+    width: 95%;
+    height: 189px;
 }
 p{
     text-align: justify;
