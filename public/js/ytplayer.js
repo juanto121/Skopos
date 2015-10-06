@@ -1,4 +1,5 @@
 var player;
+var done = false;
 var Player = (function(){
 	function Player(){
 		this.init();
@@ -33,8 +34,10 @@ var Player = (function(){
 
 	player.changeVideo = function(videoId){
 		
-		if(videoId.trim()!==""){
+		if(videoId.trim()!=="")
+		{
 			ytplayer.loadVideoById(videoId,0,"medium");
+			done = false;
 		}
 	};
 
@@ -46,6 +49,11 @@ var Player = (function(){
 			idVideo = match[7];
 		}
 		return idVideo;
+	};
+
+	player.playVideo = function()
+	{
+		ytplayer.playVideo();
 	};
 
 	return Player;
@@ -61,8 +69,14 @@ function onYouTubeIframeAPIReady(){
 }
 
 function onPlayerStateChange( event ){
-   if (ytplayer.getPlayerState() == 1){
+   if (ytplayer.getPlayerState() == 1)
+   {
      document.querySelector("#title_video").innerHTML=ytplayer.getVideoData().title;
-     ytplayer.pauseVideo();
+     if(!done)
+     {
+     	ytplayer.pauseVideo();
+     	ytplayer.cueVideoById(ytplayer.getVideoData().video_id);
+     	done=true;
+     }
    }
 }
