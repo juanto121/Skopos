@@ -63,5 +63,6 @@ function onYouTubeIframeAPIReady(){
 function onPlayerStateChange( event ){
    if (ytplayer.getPlayerState() == 1){
      document.querySelector("#title_video").innerHTML=ytplayer.getVideoData().title;
+     ytplayer.pauseVideo();
    }
 }
