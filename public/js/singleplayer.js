@@ -16,6 +16,7 @@ var SinglePlayer = (function(){
 		this.edition = document.querySelector(".edition");
 		this.input = document.querySelector(".inputContainer");
 		this.inputHistory = document.querySelector(".prevInput");
+		this.initText = document.querySelector(".placeholder");
 
 		this.cpmCounter = document.querySelector("#CPM");
 		this.score = document.querySelector("#score");
@@ -30,9 +31,11 @@ var SinglePlayer = (function(){
 		this.userInput.addSubscriber(this.counter.keyInput.bind(this.counter));
 
 		this.counter.addCounterListener(this.updateScore.bind(this));
-		//setInterval(this.counter.keyInput.bind(this.counter),1000);
 
 		if(this.url) this.url.addEventListener("change", this.setVideo.bind(this));
+		
+		if(this.initText)
+        	this.initText.addEventListener("click", this.setInput.bind(this));
 
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);
@@ -40,12 +43,19 @@ var SinglePlayer = (function(){
 		this.userInput.bindElement(this.input);
 	};
 
+	sp.setInput = function()
+	{
+		this.input.textContent = "";
+	}
+
 	sp.setVideo = function(){
 		var url = this.url.value;
 		var idVideo= this.player.parseUrl(url);
 		this.player.changeVideo(idVideo);
 		this.edition.classList.remove("hidden");
 		this.urlContainer.classList.toggle("hidden");
+		document.querySelector(".prevInput").innerHTML="";
+
 	};
 
 	sp.toolAction = function(notification){
@@ -77,7 +87,6 @@ var SinglePlayer = (function(){
 			this.toolsBoxElement.querySelector("#youtube").classList.toggle('hidden');
 			var idVideo= this.player.parseUrl(url);
 			this.player.changeVideo(idVideo);
-			document.querySelector(".prevInput").innerHTML="";
 		}
 
 		if(notification.tag == "save"){

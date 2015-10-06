@@ -71,7 +71,6 @@ function onYouTubeIframeAPIReady(){
 function onPlayerStateChange( event ){
    if (ytplayer.getPlayerState() == 1)
    {
-      console.log(done);
      document.querySelector("#title_video").innerHTML=ytplayer.getVideoData().title;
      if(!done)
      {

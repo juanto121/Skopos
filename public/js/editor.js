@@ -47,9 +47,9 @@ var Editor = (function(){
 			}
 		}
 	};
-	editor.setInput = function(input){
+	editor.setInput = function(input)
+	{
 		this.input = input;
-		this.input.textContent = "";
 	};
 	editor.setHistory = function(prevInput){
 		this.previn = prevInput;
