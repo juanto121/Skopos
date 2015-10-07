@@ -101,7 +101,7 @@ body {
   background: #f0f0f0; 
   font-family: 'Oxygen', sans-serif;
   color: #313131;
-  font-size: 62.5%; 
+  font-size: 73.5% !important;
   line-height: 1; 
 }
 
@@ -165,6 +165,10 @@ h1 > span {
   white-space: normal;
 }
 
+.video
+{
+      margin-bottom: 15px;
+}
 
 h2 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -196,7 +200,7 @@ a:hover { text-decoration: underline; }
 /** page structure **/
 #w {
   display: block;
-  width: 750px;
+  width: 850px;
   margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 45px;
@@ -290,7 +294,7 @@ a:hover { text-decoration: underline; }
 {
     position: absolute;
     margin-top: 0px;
-    margin-left: 65px;
+    margin-left: 28px;
 }
 
 .activity input[type="button"]{
@@ -373,7 +377,7 @@ html[xmlns] .clearfix { display: block; }
 
 .date_style
 {
-  margin-left: 0px !important;
+  margin-left: 85px !important;
   text-align: center ;
   width: 300px;
   margin-top: 32px !important;

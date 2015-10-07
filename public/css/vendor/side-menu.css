@@ -79,7 +79,7 @@ appears on the left side of the page.
 */
 
 #menu {
-    font-size: 1em;
+    font-size: 1em !important;
     margin-left: -200px; /* "#menu" width */
     width: 200px;
     position: fixed;
