@@ -155,11 +155,12 @@ background-color: #AFAFAF;
     color:black;
     font-size:30px;
     height: 45px;
+    box-shadow: 0px 0px 20px black;
 }
 
 
 .placeholder{
-    color:#c2c2c2;
+    color:black;
 }
 
 .timestamp{
