@@ -1,5 +1,6 @@
 var fs	= require('fs');
 var userc = require('./controllers/userController');
+var transc = require('./controllers/transcriptionController');
 
 module.exports = function(app, passport) {
 
@@ -91,10 +92,9 @@ module.exports = function(app, passport) {
 	});
 
 	app.post('/solo/:id*?', isLoggedIn, function(req, res){
-		//TODO: Get the id and pass it through, if id is
-		//used then save to the transcription. All if there is even an id.
 		userc.saveTranscription(req, function(err){
 			if(err) throw err;
+			console.log("Saved Transcription")
 		});
 	});
 };
