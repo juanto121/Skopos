@@ -28,14 +28,16 @@ var SinglePlayer = (function(){
 		this.userInput.addSubscriber(this.editor.addLine.bind(this.editor));
 		
 		this.userInput.addSubscriber(this.player.resume.bind(this.player));
-		this.userInput.addSubscriber(this.counter.keyInput.bind(this.counter));
 
-		this.counter.addCounterListener(this.updateScore.bind(this));
+		if(this.cpmCounter && this.score){
+			this.userInput.addSubscriber(this.counter.keyInput.bind(this.counter));
+			this.counter.addCounterListener(this.updateScore.bind(this));
+		}
 
 		if(this.url) this.url.addEventListener("change", this.setVideo.bind(this));
 		
 		if(this.initText)
-        	this.initText.addEventListener("click", this.setInput.bind(this));
+			this.initText.addEventListener("click", this.setInput.bind(this));
 
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);
@@ -46,7 +48,7 @@ var SinglePlayer = (function(){
 	sp.setInput = function()
 	{
 		this.input.textContent = "";
-	}
+	};
 
 	sp.setVideo = function(){
 		var url = this.url.value;
@@ -55,7 +57,6 @@ var SinglePlayer = (function(){
 		this.edition.classList.remove("hidden");
 		this.urlContainer.classList.toggle("hidden");
 		document.querySelector(".prevInput").innerHTML="";
-
 	};
 
 	sp.toolAction = function(notification){

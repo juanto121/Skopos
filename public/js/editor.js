@@ -38,8 +38,8 @@ var Editor = (function(){
 				this.input.textContent = "";
 
 
-				if(this.transcription.length > 5){
-					var lastVisibleChild = this.previn.children[4];
+				if(this.transcription.length > 10){
+					var lastVisibleChild = this.previn.children[10];
 					lastVisibleChild.className = lastVisibleChild.className + " hidden";
 				}
 

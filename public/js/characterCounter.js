@@ -23,7 +23,7 @@ var CharCounter = (function(){
 				this.cpm = 60000/ ((currentTime-this.timeLastKeyStroke));
 				this.timeLastKeyStroke = currentTime;
 				this.wpm = this.cpm/5;
-				console.log(this.cpm + " " + this.wpm);
+				
 				for(var listener in this.counterListeners){
 					this.counterListeners[listener]();
 				}

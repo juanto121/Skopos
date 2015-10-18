@@ -55,6 +55,10 @@ module.exports = function(app, passport) {
 
 	/* ============================ LOGGED USERS ============================*/
 
+	app.get('/collab/:id*?', function(req, res){
+		res.render('collab.ejs');
+	});
+
 	app.get('/profile', isLoggedIn, function(req, res) {
 		userc.getTranscriptions(req, function(transcriptions){
 			res.render('profile.ejs', {

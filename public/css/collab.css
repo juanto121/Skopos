@@ -1,0 +1,13 @@
+.completion{
+	background-color: #fcdb34;
+}
+.collaboratorsList{
+	list-style: none;
+}
+.collaborator{
+	display: inline-block;
+	background-color: #ADDEF1;
+}
+.previnput{
+	margin-top:20%;
+}
