@@ -1,6 +1,7 @@
 var fs	= require('fs');
 var userc = require('./controllers/userController');
 var transc = require('./controllers/transcriptionController');
+var collabc = require('./controllers/collabController');
 
 module.exports = function(app, passport) {
 
@@ -56,8 +57,46 @@ module.exports = function(app, passport) {
 
 	/* ============================ LOGGED USERS ============================*/
 
-	app.get('/collab/:id*?', function(req, res){
-		res.render('collab.ejs');
+
+	app.get('/collab/new', isLoggedIn, function(req, res){
+			res.render('collabconfig.ejs');
+	});
+
+	app.post('/collab/new', isLoggedIn, function(req, res){
+		collabc.newCollab(req, function(collab){
+			res.render('collabadmin.ejs',{collab:collab});
+		});
+	});
+
+	app.get('/collab/admin/:id', isLoggedIn, function(req, res){
+		var id = req.params.id;
+		collabc.findCollabById(id, function(collab){
+			if(collab){
+				if(collab.author+"" === req.user._id+"")
+					res.render('collabadmin.ejs', {collab:collab});
+				else
+					res.redirect('/');
+			}else
+				res.send("Not found", 404);
+		});
+	});
+
+	app.get('/collab/:id*?', isLoggedIn, function(req, res){
+		var id = req.params.id;
+		collabc.findCollabById(id, function(collab){
+			if(collab)
+				res.render('collab.ejs',{collab:collab});
+			else
+				res.send("Not Found", 404);
+		});
+	});
+
+	app.post('collab/:id*?', isLoggedIn, function(req, res){
+		console.log(req);
+		/*collabc.saveCollab(req, function(err){
+			if(err) throw err;
+			console.log("Saved Collab");
+		});*/
 	});
 
 	app.get('/profile', isLoggedIn, function(req, res) {
@@ -87,14 +126,17 @@ module.exports = function(app, passport) {
 
 	app.get('/solo/:id', isLoggedIn, function(req, res){
 		userc.getTranscriptionById(req.params.id,function(transcript){
-			res.render('soloplay.ejs',{transcription:transcript});
+			if(transcript)
+				res.render('soloplay.ejs',{transcription:transcript});
+			else
+				res.send('Not Found',404);
 		});
 	});
 
 	app.post('/solo/:id*?', isLoggedIn, function(req, res){
 		userc.saveTranscription(req, function(err){
 			if(err) throw err;
-			console.log("Saved Transcription")
+			console.log("Saved Transcription");
 		});
 	});
 };

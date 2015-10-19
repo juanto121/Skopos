@@ -74,9 +74,9 @@ function onPlayerStateChange( event ){
      document.querySelector("#title_video").innerHTML=ytplayer.getVideoData().title;
      if(!done)
      {
-     	ytplayer.pauseVideo();
-     	ytplayer.cueVideoById(ytplayer.getVideoData().video_id);
-     	done=true;
+		ytplayer.pauseVideo();
+		ytplayer.cueVideoById(ytplayer.getVideoData().video_id);
+		done=true;
      }
    }
 }

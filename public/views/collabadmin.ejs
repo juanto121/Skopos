@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Collaboration Setup</title>
+	<link rel="stylesheet" href="../css/vendor/pure-min.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/collabadmin.css">
+</head>
+
+<body>
+	
+	<div class="share">
+		<h1>Link para colaboradores:</h1> 
+		skopos.com/collab/<%=collab._id%> 
+	</div>
+
+	<div class="admin">
+		<h1>Link para admin:</h1> 
+		skopos.com/collab/admin/<%=collab._id%> 
+	</div>
+	
+	<div class="videoInfo">
+		<h2>Video Info</h2>
+		video id: <%=collab.videoId%>
+	</div>
+	
+	<div class="collaborators">
+		<h2>Collaborators</h2>
+	</div>
+
+	<div class="progress">
+		<h2>Progress</h2>	
+	</div>
+
+	<div class="download">
+		<button>Download</button>
+	</div>
+
+</body>
+</html>
