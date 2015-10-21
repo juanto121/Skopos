@@ -68,26 +68,28 @@ var Editor = (function(){
 		var urlPath = window.location.pathname;
 		urlPath = urlPath.substring(1,urlPath.length);
 		var parts = urlPath.split("/");
-		var transcriptionId = parts[1];
-		var that = this;
-		if(transcriptionId !== "new"){
-			$.get("/temp/files/"+transcriptionId+".srt",function(data){
-				//TODO: notify user of data retrieval.
-			})
-			.done(function(data){
-				var entries = that.formatter.deformat(data);
-				var content = document.createElement("div");
-				for(var e = 0; e < entries.length; e++){
-					var entry = entries[e];
-					that.transcription.push(entry);
-					var element =	that.createTranscriptionElement(entry);
-					content.appendChild(element);
-				}
-				that.previn.appendChild(content);
-			})
-			.fail(function(){
-				console.log("Could not find resource");
-			});
+		if(parts[0] == "solo"){
+			var transcriptionId = parts[1];
+			var that = this;
+			if(transcriptionId !== "new"){
+				$.get("/temp/files/"+transcriptionId+".srt",function(data){
+					//TODO: notify user of data retrieval.
+				})
+				.done(function(data){
+					var entries = that.formatter.deformat(data);
+					var content = document.createElement("div");
+					for(var e = 0; e < entries.length; e++){
+						var entry = entries[e];
+						that.transcription.push(entry);
+						var element =	that.createTranscriptionElement(entry);
+						content.appendChild(element);
+					}
+					that.previn.appendChild(content);
+				})
+				.fail(function(){
+					console.log("Could not find resource");
+				});
+			}
 		}
 	};
 
