@@ -11,3 +11,12 @@
 .previnput{
 	margin-top:20%;
 }
+
+.elem
+{
+	height: auto !important;
+}
+.center_part
+{
+	margin-left: 120px;
+}
