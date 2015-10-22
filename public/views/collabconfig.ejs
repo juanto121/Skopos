@@ -13,8 +13,6 @@
 	
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/collabconfig.css">
-	<link rel="stylesheet" href="../css/vendor/pure-min.css">
-	<link rel="stylesheet" href="../css/vendor/side-menu.css">
 
 
 </head>
@@ -24,50 +22,34 @@
 	
 	<div id="layout">
 	
-	<a href="#menu" id="menuLink" class="menu-link">
-    <!-- Hamburger icon -->
-    	<span></span>
-	</a>
+	<% include partials/menu_collab_conf %>
 
-	  <div id="menu"  class="pure-menu custom-restricted-width">
-        
-            <span class=" menu-title pure-menu-heading">
-                <a class="menu-heading-home" href="/">S[k]opos</a>
-            </span>
-            <ul class="pure-menu-list">
+	 <div class="center">
 
-                    <li class="pure-menu-item elem"><a href="/profile" class="pure-menu-link">Mi Cuenta</a></li>
-                    <li class="pure-menu-item elem"><a href="/logout" class="pure-menu-link">Cerrar Sessión</a></li>
-            </ul>
-        
-    </div>
- <div class="center">
-
-	<form class="pure-form pure-form-stacked" method="post">
-		<fieldset>
-			<legend>  <h1><div class="information">Configuración de Colaboración</div></h1> </legend>
-			
-			<div class="colaboracion"> 
-
-				<label class="col_elem" for="videoId">Ingrese Id video de Youtube: </label>
-				<input class="col_elem" type="text" placeholder="youtube_id" name="videoId">
+		<form class="pure-form pure-form-stacked" method="post">
+			<fieldset>
+				<legend>  <h1><div class="information">Configuración de Colaboración</div></h1> </legend>
 				
-				<div class="col_elem_btn">
+				<div class="colaboracion"> 
 
-					<button  type="submit"  class="pure-button pure-button-primary yellowback skopos-grey">
-						Crear
-					</button>
+					<label class="col_elem" for="videoId">Ingrese Id video de Youtube: </label>
+					<input class="col_elem" type="text" placeholder="youtube_id" name="videoId">
+					
+					<div class="col_elem_btn">
 
+						<button  type="submit"  class="pure-button pure-button-primary yellowback skopos-grey">
+							Crear
+						</button>
+
+					</div>
 				</div>
-			</div>
-		</fieldset>
-	</form>
-  </div>
+			</fieldset>
+		</form>
+	  </div>
  </div>
 
  <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
  <script src="../js/plugins.js"></script>
-<script src="../../js/vendor/ui.js"></script>
 
 </body>
 </html>
