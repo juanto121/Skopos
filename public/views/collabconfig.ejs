@@ -1,23 +1,73 @@
 <html>
 <head>
 	<title>Collaboration Setup</title>
-	<link rel="stylesheet" href="../css/vendor/pure-min.css">
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+	
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/collabconfig.css">
+	<link rel="stylesheet" href="../css/vendor/pure-min.css">
+	<link rel="stylesheet" href="../css/vendor/side-menu.css">
+
+
 </head>
 
 <body>
+	<!--Menu -->
+	
+	<div id="layout">
+	
+	<a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    	<span></span>
+	</a>
+
+	  <div id="menu"  class="pure-menu custom-restricted-width">
+        
+            <span class=" menu-title pure-menu-heading">
+                <a class="menu-heading-home" href="/">S[k]opos</a>
+            </span>
+            <ul class="pure-menu-list">
+
+                    <li class="pure-menu-item elem"><a href="/profile" class="pure-menu-link">Mi Cuenta</a></li>
+                    <li class="pure-menu-item elem"><a href="/logout" class="pure-menu-link">Cerrar Sessión</a></li>
+            </ul>
+        
+    </div>
+ <div class="center">
+
 	<form class="pure-form pure-form-stacked" method="post">
 		<fieldset>
-			<legend>Configura</legend>
+			<legend>  <h1><div class="information">Configuración de Colaboración</div></h1> </legend>
+			
+			<div class="colaboracion"> 
 
-			<label for="videoId">Id video Youtube: </label>
-			<input type="text" placeholder="youtube_id" name="videoId">
+				<label class="col_elem" for="videoId">Ingrese Id video de Youtube: </label>
+				<input class="col_elem" type="text" placeholder="youtube_id" name="videoId">
+				
+				<div class="col_elem_btn">
 
-			<button type="submit"  class="pure-button pure-button-primary yellowback skopos-grey">
-				Crear
-			</button>
+					<button  type="submit"  class="pure-button pure-button-primary yellowback skopos-grey">
+						Crear
+					</button>
+
+				</div>
+			</div>
 		</fieldset>
 	</form>
+  </div>
+ </div>
+
+ <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+ <script src="../js/plugins.js"></script>
+<script src="../../js/vendor/ui.js"></script>
+
 </body>
 </html>

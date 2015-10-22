@@ -1,3 +1,14 @@
+body
+{
+	    font-family: 'Oxygen', sans-serif;
+}
+
+.information {
+    color: #777;
+    text-align: center;
+}
+
+
 .skopos-grey{
 	color:#212121;
 }
@@ -7,4 +18,30 @@ input{
 .share{
 	background-color: #2121F1;
 	padding:10px;
+}
+
+.center{
+    width:560px;
+    margin:0 auto;
+}
+
+.elem
+{
+	height: auto !important;
+}
+
+.colaboracion
+{
+	text-align: justify;
+}
+
+.col_elem
+{
+	margin-top:20px !important;
+}
+
+.col_elem_btn
+{
+	margin-left:200px;
+	margin-top:20px !important;
 }
