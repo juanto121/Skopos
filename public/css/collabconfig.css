@@ -13,7 +13,7 @@ body
 	color:#212121;
 }
 input{
-	width: 500px;
+	 width: 560px;
 }
 .share{
 	background-color: #2121F1;
@@ -42,6 +42,6 @@ input{
 
 .col_elem_btn
 {
-	margin-left:200px;
+	margin-left: 245px;
 	margin-top:20px !important;
 }

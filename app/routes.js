@@ -77,7 +77,10 @@ module.exports = function(app, passport) {
 				else
 					res.redirect('/');
 			}else
+			{
+				console.log("Error");
 				res.send("Not found", 404);
+			}
 		});
 	});
 
