@@ -1,0 +1,24 @@
+.elem
+{
+	height: auto !important;
+}
+
+body
+{
+	    font-family: 'Oxygen', sans-serif;
+}
+
+.information {
+    color: #777;
+    text-align: center;
+}
+
+.center_links
+{
+	margin-left:360px;
+}
+
+.center_links i
+{
+	margin-left:15px;
+}
