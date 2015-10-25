@@ -68,7 +68,7 @@ var Editor = (function(){
 		var urlPath = window.location.pathname;
 		urlPath = urlPath.substring(1,urlPath.length);
 		var parts = urlPath.split("/");
-		if(parts[0] == "solo"){
+		if(parts[0] == "solo" && parts[1]){
 			var transcriptionId = parts[1];
 			var that = this;
 			if(transcriptionId !== "new"){

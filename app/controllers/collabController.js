@@ -32,6 +32,14 @@ exports.findCollabById = function(id, cb){
 	});
 };
 
+exports.addCollaborator = function(collabId, userId, cb){
+	this.findCollabById(collabId, function(collab){
+		console.log("Adding collaborator with id: " + userId);
+		collab.collaborators.addToSet(userId);
+		collab.save(cb(collab));
+	});
+};
+
 //helpers
 
 function parseUrl(url){

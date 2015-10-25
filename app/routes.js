@@ -84,13 +84,26 @@ module.exports = function(app, passport) {
 		});
 	});
 
-	app.get('/collab/:id*?', isLoggedIn, function(req, res){
-		var id = req.params.id;
-		collabc.findCollabById(id, function(collab){
-			if(collab)
+	app.get('/collab/:id', isLoggedIn, function(req, res){
+		var collabId = req.params.id;
+		var userId = req.user.id;
+		collabc.addCollaborator(collabId, userId, function(collab){
+			if(collab){
 				res.render('collab.ejs',{collab:collab});
-			else
+			}else{
 				res.send("Not Found", 404);
+			}
+		});
+
+	});
+
+	app.get('/collab/:id/data', isLoggedIn, function(req, res){
+		var id = req.params.id;
+		var userId = req.user.id;
+		collabc.findCollabById(id, function(collab){
+			if(collab){
+				res.send({collab:collab, userId:userId});
+			}
 		});
 	});
 
