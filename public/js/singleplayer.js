@@ -18,6 +18,10 @@ var SinglePlayer = (function(){
 		this.inputHistory = document.querySelector(".prevInput");
 		this.initText = document.querySelector(".placeholder");
 		this.videoTitle = document.querySelector("#title_video");
+		this.playerElement = document.querySelector('#player');
+		this.videoId = document.querySelector('#videoId').innerHTML;
+
+		this.player.initVars(this.playerElement, this.videoId, this.videoTitle);
 
 		this.cpmCounter = document.querySelector("#CPM");
 		this.score = document.querySelector("#score");
@@ -111,15 +115,9 @@ var SinglePlayer = (function(){
 		this.score.textContent = Number(this.score.textContent) + 1;
 	};
 
-	sp.videoReady = function(event){
-		var title = event.target.getVideoData().title;
-		document.querySelector("#title_video").innerHTML = title;
-	};
-
 	return SinglePlayer;
 })();
 
 window.onload = function(){
 	var SP = new SinglePlayer();
 };
-
