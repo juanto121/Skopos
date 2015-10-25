@@ -6,7 +6,7 @@ var Player = (function(){
 	}
 	var player = Player.prototype;
 	player.resume = function(){
-		alert("ytplayer");
+	//	alert("ytplayer");
 	};
 	player.init = function(){
 		/* TODO : Check if YT API is already downloaded */
@@ -63,7 +63,8 @@ function onYouTubeIframeAPIReady(){
 	ytplayer = new YT.Player('player',
 		{
 			events: {
-						'onStateChange': onPlayerStateChange
+						'onStateChange': onPlayerStateChange,
+						'onReady': SinglePlayer.prototype.videoReady
 					}
 		});
 }

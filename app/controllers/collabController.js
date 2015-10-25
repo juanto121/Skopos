@@ -5,7 +5,7 @@ exports.newCollab = function(req, cb){
 
 	var collab = new Collab();
 
-	var videoId = data.videoId;
+	var videoId = parseUrl(data.videoId);
 	var author = req.user._id;
 
 	collab.videoId = videoId;
@@ -31,3 +31,15 @@ exports.findCollabById = function(id, cb){
 		cb(collaboration);
 	});
 };
+
+//helpers
+
+function parseUrl(url){
+	var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+	var match = url.match(regExp);
+	var idVideo = "";
+	if (match&&match[7].length==11){
+		idVideo = match[7];
+	}
+	return idVideo;
+}
