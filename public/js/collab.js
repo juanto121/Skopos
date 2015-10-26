@@ -55,12 +55,15 @@ var Collab = (function(){
 			var userIndex = collabInfo.collaborators.indexOf(userId);
 			var videoDuration = collaboration.player.duration;
 			var fraction = 1 / collabInfo.collaborators.length;
-			var start = userIndex * videoDuration*fraction;
-			var end = start + videoDuration * fraction;
-			collaboration.player.loadSection(start, end);
+			collaboration.sectionVideo(userIndex, fraction, videoDuration);
 		});
 	};
 
+	collab.sectionVideo = function(userIndex, fraction, videoDuration){
+		var start = userIndex * videoDuration*fraction;
+		var end = start + videoDuration * fraction;
+		this.player.loadSection(start, end);
+	};
 
 	return Collab;
 })();
