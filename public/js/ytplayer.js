@@ -31,7 +31,7 @@ var Player = (function(){
 	player.notifyReady = function(){
 		for (var i = this.listeners.length - 1; i >= 0; i--) {
 			this.listeners[i]();
-		};
+		}
 	};
 
 	player.createPlayer = function(){

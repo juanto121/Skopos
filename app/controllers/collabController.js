@@ -1,4 +1,5 @@
 var Collab	= require('../models/collab');
+var Transcription = require('../controllers/transcriptionController');
 
 exports.newCollab = function(req, cb){
 	var data = req.body;
@@ -20,7 +21,39 @@ exports.newCollab = function(req, cb){
 };
 
 exports.saveCollab = function(req, cb){
-	cb();
+	var collabId = req.params.id;
+	var user = req.user;
+	var transInfo = req.body.data;
+	//TODO : Change the for loop with a proper mongoose atomic/async query
+	Collab.findOne({_id:collabId}).populate({
+		path:'parts'
+	}).exec(function(err, collab){
+		var found = false;
+		console.log(collab.parts);
+		for (var i = collab.parts.length - 1; i >= 0; i--) {
+			console.log(collab.parts[i].author + " <--> " + user._id);
+			if(collab.parts[i].author+"" === user._id+""){
+				found = collab.parts[i];
+				break;
+			}
+		}
+		if(found){
+			Transcription.saveTranscription(found, transInfo, function(updated){
+				console.log("Updated transcription succesfully");
+				cb();
+			});
+		}else{
+			Transcription.newTranscription(function(trans){
+				trans.path = "public/temp/files/" + trans._id + ".srt";
+				trans.author = user._id;
+				Transcription.saveTranscription(trans, transInfo, function(transc){
+						console.log("Added new part to collab " + transc);
+						collab.parts.addToSet(transc._id);
+						collab.save(cb);
+				});
+			});
+		}
+	});
 };
 
 exports.findCollabById = function(id, cb){

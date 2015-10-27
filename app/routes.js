@@ -120,12 +120,12 @@ module.exports = function(app, passport) {
 		});
 	});
 
-	app.post('collab/:id*?', isLoggedIn, function(req, res){
-		console.log(req);
-		/*collabc.saveCollab(req, function(err){
+	app.post('/collab/:id', isLoggedIn, function(req, res){
+		//console.log(req);
+		collabc.saveCollab(req, function(err){
 			if(err) throw err;
 			console.log("Saved Collab");
-		});*/
+		});
 	});
 
 	app.get('/profile', isLoggedIn, function(req, res) {
