@@ -1,5 +1,7 @@
 Design/*
 
+public/temp/files/*.srt
+
 lib-cov
 *.seed
 *.log

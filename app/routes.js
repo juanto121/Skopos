@@ -115,7 +115,9 @@ module.exports = function(app, passport) {
 		var userId = req.user.id;
 		collabc.findCollabById(id, function(collab){
 			if(collab){
-				res.send({collab:collab, userId:userId});
+				collabc.findPartByUserInCollab(userId, collab, function(transcription){
+					res.send({collab:collab, userId:userId, part:transcription});	
+				});
 			}
 		});
 	});

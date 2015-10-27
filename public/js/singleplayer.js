@@ -20,8 +20,10 @@ var SinglePlayer = (function(){
 		this.videoTitle = document.querySelector("#title_video");
 		this.playerElement = document.querySelector('#player');
 		this.videoId = document.querySelector('#videoId').innerHTML;
+		this.transcriptionId = document.querySelector('#transcriptionId');
 
 		this.player.initVars(this.playerElement, this.videoId, this.videoTitle);
+		this.player.addListener(this.playerReady.bind(this));
 
 		this.cpmCounter = document.querySelector("#CPM");
 		this.score = document.querySelector("#score");
@@ -107,6 +109,12 @@ var SinglePlayer = (function(){
 				//TODO: show message, transcription saved
 				console.log("transcription saved?");
 			});
+		}
+	};
+
+	sp.playerReady = function(){
+		if(this.transcriptionId && this.transcriptionId.innerHTML){
+			this.editor.loadSavedTranscription(this.transcriptionId.innerHTML);
 		}
 	};
 

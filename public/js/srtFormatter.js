@@ -63,7 +63,7 @@ var SrtFormatter = (function(){
 		var minute = Number(start[1]*60);
 		var second = Number(start[2].split(",")[0]);
 		return hour + minute + second;
-	};
+	}
 
 	function padding(time){
 		return time<10?"0"+time:time;
