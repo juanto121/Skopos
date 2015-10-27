@@ -1,6 +1,7 @@
 var User			= require('../models/user');
 var Transcription	= require('../models/transcription');
 var fileSave		= require('file-save');
+var Collab	= require('../models/collab');
 
 exports.updateUserInfo = function(req, cb) {
 	var user = req.user;
@@ -58,6 +59,17 @@ exports.getTranscriptions = function(req, cb){
 		/*TODO: Replace with flash message*/
 		if(err) console.log("Error while getting transcriptions");
 		return cb(transcript);
+	});
+};
+
+exports.getCollabsUser = function(req, cb){
+	var user = req.user;
+	Collab
+	.find({author : user._id})
+	.exec(function(err, collaboration){
+		/*TODO: Replace with flash message*/
+		if(err) console.log("Error while getting collaborations");
+		return cb(collaboration);
 	});
 };
 

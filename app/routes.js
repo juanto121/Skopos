@@ -130,12 +130,18 @@ module.exports = function(app, passport) {
 
 	app.get('/profile', isLoggedIn, function(req, res) {
 		userc.getTranscriptions(req, function(transcriptions){
+		  userc.getCollabsUser(req, function(collabs){
+
 			res.render('profile.ejs', {
 				user : req.user,
 				transcriptions : transcriptions,
+				collabs : collabs,
 				message:req.flash('updateStatus')
 			});
+		  });
 		});
+
+
 	});
 
 	app.post('/profile', isLoggedIn, function(req, res) {

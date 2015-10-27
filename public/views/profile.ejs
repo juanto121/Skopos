@@ -35,6 +35,7 @@
         <li><a href="#desc" class="sel">Presentación</a></li>
         <li><a href="#datos" >Datos Personales</a></li>
         <li><a href="#transc">Transcripciones</a></li>
+        <li><a href="#collabs">Colaboraciones</a></li>
         <li><a href="#amigos">Amigos</a></li>
         
       </ul>
@@ -59,6 +60,18 @@
           <input type="button" class="btn" value="Descargar">
           <label class="date_style"><%=transcriptions[i].creationDate%></label>
         </div>
+      <% } %>
+
+    </section>
+
+    <section id="collabs" class="hidden">
+      <p><b>Colaboraciones Creadas como Autor:</b></p>
+      <%for(var i = 0; i < collabs.length; i++){%>
+        <div class= "activity">
+          <label> Enlace a admin: </label> <br>
+           <a href="/collab/admin/<%=collabs[i]._id%>"> skopos.com/collab/admin/<%=collabs[i]._id%> </a> 
+          
+        </div><br><br>
       <% } %>
 
     </section>
