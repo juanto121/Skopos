@@ -159,6 +159,7 @@ body{
 }
 .menu_link{
   text-decoration: none;
+  color:#212121;
 }
 .menu_link:visited{
   color:#212121;
