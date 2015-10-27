@@ -40,6 +40,16 @@ exports.addCollaborator = function(collabId, userId, cb){
 	});
 };
 
+exports.getCollabs = function(req, cb){
+	Collab
+	.find()
+	.exec(function(err, collaboration){
+		/*TODO: Replace with flash message*/
+		if(err) console.log("Error while getting collabs");
+		return cb(collaboration);
+	});
+};
+
 //helpers
 
 function parseUrl(url){

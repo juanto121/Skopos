@@ -105,6 +105,11 @@
       </a>
     </div>
     <div class="col span_1_of_2">
+    <%if(user){%>
+        <a href="/collabList" class="menu_link">
+        <%}else{%>
+        <a href="#modal-one" class="menu_link">
+         <%}%>
      <div class="top infobox">
         <div class="group">
             <div class="col icon span_1_of_4"><i class="fa fa-gamepad fa-2x icon_tr"></i></div>
@@ -118,7 +123,7 @@
             </div>
         </div>
     </div>
-    
+     </a>
     <div class="bottom infobox">
        <div class="group">
         <div class="col icon span_1_of_4"><i class="fa fa-graduation-cap fa-2x icon_br"></i></div>

@@ -120,6 +120,8 @@ body{
     font-family: "Roboto Condensed",sans-serif;
     text-align: center;
     font-size: 18px;
+    margin-top: -83px;
+    padding-bottom: 30px;
 }
 
 .stats{

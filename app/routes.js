@@ -62,10 +62,23 @@ module.exports = function(app, passport) {
 			res.render('collabconfig.ejs');
 	});
 
+	
 	app.post('/collab/new', isLoggedIn, function(req, res){
 		collabc.newCollab(req, function(collab){
 			res.render('collabadmin.ejs',{collab:collab});
 		});
+	});
+
+	app.get('/collabList', isLoggedIn, function(req, res){
+			collabc.getCollabs(req, function(collabs){
+			res.render('collabList.ejs',{collabs:collabs});
+		});
+	});
+
+	app.post('/collabList', isLoggedIn, function(req, res){
+		var data = req.body;
+		var url_colaboracion = data.colaboracion;
+		res.redirect(url_colaboracion);
 	});
 
 	app.get('/collab/admin/:id', isLoggedIn, function(req, res){
