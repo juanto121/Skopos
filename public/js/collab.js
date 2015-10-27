@@ -20,7 +20,7 @@ var Collab = (function(){
 		this.videoTitle = document.querySelector("#title_video");
 		this.playerElement = document.querySelector('#player');
 		this.videoId = document.querySelector('#videoId').innerHTML;
-
+		
 		this.player.initVars(this.playerElement, this.videoId, this.videoTitle);
 		this.player.addListener(this.playerReady.bind(this));
 
@@ -32,10 +32,16 @@ var Collab = (function(){
 		
 		this.userInput.addSubscriber(this.player.resume.bind(this.player));
 
+		this.initText.addEventListener("click", this.setInput.bind(this));
+
 		this.editor.setPlayer(this.player);
 		this.editor.setInput(this.input);
 		this.editor.setHistory(this.inputHistory);
 		this.userInput.bindElement(this.input);
+	};
+
+	collab.setInput = function(){
+		this.input.textContent = "";
 	};
 
 	collab.toolAction = function(notification){
@@ -67,6 +73,8 @@ var Collab = (function(){
 			var userIndex = collabInfo.collaborators.indexOf(userId);
 			var videoDuration = collaboration.player.duration;
 			var fraction = 1 / collabInfo.collaborators.length;
+			collaboration.transcription = data.part;
+			collaboration.editor.loadSavedTranscription(collaboration.transcription._id);
 			collaboration.sectionVideo(userIndex, fraction, videoDuration);
 		});
 	};

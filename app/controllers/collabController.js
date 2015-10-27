@@ -21,6 +21,7 @@ exports.newCollab = function(req, cb){
 };
 
 exports.saveCollab = function(req, cb){
+	var collabc = this;
 	var collabId = req.params.id;
 	var user = req.user;
 	var transInfo = req.body.data;
@@ -29,31 +30,45 @@ exports.saveCollab = function(req, cb){
 		path:'parts'
 	}).exec(function(err, collab){
 		var found = false;
-		console.log(collab.parts);
-		for (var i = collab.parts.length - 1; i >= 0; i--) {
-			console.log(collab.parts[i].author + " <--> " + user._id);
-			if(collab.parts[i].author+"" === user._id+""){
-				found = collab.parts[i];
-				break;
-			}
-		}
-		if(found){
-			Transcription.saveTranscription(found, transInfo, function(updated){
-				console.log("Updated transcription succesfully");
-				cb();
-			});
-		}else{
-			Transcription.newTranscription(function(trans){
-				trans.path = "public/temp/files/" + trans._id + ".srt";
-				trans.author = user._id;
-				Transcription.saveTranscription(trans, transInfo, function(transc){
-						console.log("Added new part to collab " + transc);
-						collab.parts.addToSet(transc._id);
-						collab.save(cb);
+		collabc.findPartByUserInCollab(user._id, collab, function(found){
+			if(found){
+				Transcription.saveTranscription(found, transInfo, function(updated){
+					console.log("Updated transcription succesfully");
+					cb();
 				});
-			});
-		}
+			}else{
+				Transcription.newTranscription(function(trans){
+					trans.path = "public/temp/files/" + trans._id + ".srt";
+					trans.author = user._id;
+					Transcription.saveTranscription(trans, transInfo, function(transc){
+							console.log("Added new part to collab " + transc);
+							collab.parts.addToSet(transc._id);
+							collab.save(cb);
+					});
+				});
+			}
+		});
 	});
+};
+
+exports.findPartByUserInCollab = function(idUser, collab, cb){
+	var found = false;
+	this.populateCollab(collab._id, function(err, collab){
+		if(err) throw err;
+		for (var i = collab.parts.length - 1; i >= 0; i--) {
+				console.log(collab.parts[i].author + " <--> " + idUser);
+				if(collab.parts[i].author+"" === idUser+""){
+					found = collab.parts[i];
+					cb(found);
+					return;
+				}
+		}
+		cb(found);
+	});
+};
+
+exports.populateCollab = function(collabId, cb){
+	Collab.findOne({_id:collabId}).populate({path:'parts'}).exec(cb);
 };
 
 exports.findCollabById = function(id, cb){
