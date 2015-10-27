@@ -116,6 +116,12 @@ body{
     font-size: 100px;
 }
 
+.huge_desc {
+    font-family: "Roboto Condensed",sans-serif;
+    text-align: center;
+    font-size: 18px;
+}
+
 .stats{
     position: relative;
     text-align: center;

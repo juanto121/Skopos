@@ -30,6 +30,7 @@
     </nav>
 
     <h1 class="huge">S<span class="yellow">K</span>OPOS</h1>
+    <h4 class="huge_desc"> <i> Ayudanos a Transcribir el Mundo </i> </h4>
     
     <!-- Modal login -->
 
@@ -81,19 +82,27 @@
             </div>
         </div>
         </a>
+        
+         <%if(user){%>
+        <a href="/collab/new" class="menu_link">
+        <%}else{%>
+        <a href="#modal-one" class="menu_link">
+         <%}%>
+
         <div class="bottom infobox">
             <div class="group">
                 <div class="col description span_3_of_4">
                     <div class="content_left">
-                        <h2>Compite</h2>
+                        <h2>Crea tu Grupo</h2>
                         <p>
-                            ¿Crees que escribes más rápido que tu oponente? Ponte a prueba y ayudanos a transcribir el mundo.
+                            Crea un grupo de colaboración para trancribir un video de tu interés. !Comparte, Animate con tus Amigos!
                         </p>
                     </div>
                 </div>
                 <div class="col icon span_1_of_4"> <i class="fa fa-trophy fa-2x icon_bl"></i> </div>
             </div>
         </div>
+      </a>
     </div>
     <div class="col span_1_of_2">
      <div class="top infobox">
@@ -101,9 +110,9 @@
             <div class="col icon span_1_of_4"><i class="fa fa-gamepad fa-2x icon_tr"></i></div>
             <div class="col description span_3_of_4">
                 <div class="content_right">
-                    <h2>Juega</h2>
+                    <h2>Unete y Ayudanos</h2>
                     <p>
-                        Escribir de forma agil es una habilidad, entre más rapido seas más puntos ganas.
+                        Unete a una colaboración de transcripción, seleccionandola o ingresando el link compartido.
                     </p>
                 </div>
             </div>
@@ -141,7 +150,7 @@
             <div class="result">
                 <div class="fa fa-trophy fa-3x icon_2"></div>
                 <span class="label_out"> 20.000 </span>
-                <span  class="label_in"> Competencias </span>
+                <span  class="label_in"> Colaboraciones </span>
             </div>
         </div>
         <div class="sent col span_1_of_3">
