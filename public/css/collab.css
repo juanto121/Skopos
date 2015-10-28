@@ -21,6 +21,12 @@
 	margin-left: 120px;
 }
 
+#save a
+{
+    text-decoration: none;
+    margin-left: -10px;
+}
+
 .tutorial_back{
 	position: relative;
 	width: 100%;

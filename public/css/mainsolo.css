@@ -105,6 +105,12 @@ body{
     color:#212121;
 }
 
+#save a
+{
+    text-decoration: none;
+    margin-left: -10px;
+}
+
 .huge{
     text-align: center;
     color:#000;

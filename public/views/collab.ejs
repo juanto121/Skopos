@@ -19,6 +19,26 @@
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 	</head>
 	<body>
+
+    <!-- Modal de Confirmación de Cambios - Guardado -->
+ <div class="modal" id="modal-one" aria-hidden="true">
+        <div class="modal-dialog" >
+          <div class="modal-header">
+            <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Información SKOPOS</h4>
+            <a href="#close" class="btn-close" aria-hidden="true">×</a>
+        </div>
+
+            <div class="modal-body">
+
+                <h4> Transcripción Guardada con Éxito </h4>
+
+            </div>
+
+          <div class="modal-footer">
+              <a href="#close" class="btn">Aceptar</a>
+          </div>
+  </div>
+</div>
     
     <div class="tutorial_back hidden"></div>
 
@@ -42,8 +62,10 @@
                 <div class="toolbox">
                  
                     <div id="save" class="tool ">
-                        <i  class="save fa fa-floppy-o"></i>
-                        Guardar
+                        <a href="modal-one">
+                            <i  class="save fa fa-floppy-o"></i>
+                            Guardar
+                        </a>
                     </div>
                     <div id="trash" class="tool ">
                         <i  class="trash fa fa-trash-o"></i>
