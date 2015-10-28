@@ -24,7 +24,12 @@ exports.saveCollab = function(req, cb){
 	var collabc = this;
 	var collabId = req.params.id;
 	var user = req.user;
+	
 	var transInfo = req.body.data;
+	var videoId = req.body.videoId;
+	var title = req.body.title_video;
+
+	console.log(req.body);
 	//TODO : Change the for loop with a proper mongoose atomic/async query
 	Collab.findOne({_id:collabId}).populate({
 		path:'parts'
@@ -40,6 +45,8 @@ exports.saveCollab = function(req, cb){
 				Transcription.newTranscription(function(trans){
 					trans.path = "public/temp/files/" + trans._id + ".srt";
 					trans.author = user._id;
+					trans.videoId = videoId;
+					trans.title_video = title;
 					Transcription.saveTranscription(trans, transInfo, function(transc){
 							console.log("Added new part to collab " + transc);
 							collab.parts.addToSet(transc._id);
@@ -82,9 +89,13 @@ exports.findCollabById = function(id, cb){
 
 exports.addCollaborator = function(collabId, userId, cb){
 	this.findCollabById(collabId, function(collab){
+		if(collab){
 		console.log("Adding collaborator with id: " + userId);
 		collab.collaborators.addToSet(userId);
 		collab.save(cb(collab));
+		}else{
+			cb(false);
+		}
 	});
 };
 

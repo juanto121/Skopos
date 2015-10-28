@@ -78,9 +78,9 @@ var Editor = (function(){
 					var entry = entries[e];
 					that.transcription.push(entry);
 					var element =	that.createTranscriptionElement(entry);
-					content.appendChild(element);
+					that.previn.appendChild(element);
 				}
-				that.previn.appendChild(content);
+				//that.previn.appendChild(content);
 			})
 			.fail(function(){
 				console.log("Could not find resource");
