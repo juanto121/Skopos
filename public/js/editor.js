@@ -38,6 +38,15 @@ var Editor = (function(){
 		}
 	};
 
+	editor.getTranscriptedTime = function(){
+		var time = 0;
+		var len = this.transcription.length;
+		if(len > 1){
+			time = this.transcription[len-1].time - this.transcription[0].time;
+		}
+		return time;
+	};
+
 	editor.createTranscriptionElement = function(entry){
 		var content = entry.text;
 		var seconds = entry.time;
@@ -63,7 +72,7 @@ var Editor = (function(){
 		return inputUser;
 	};
 
-	editor.loadSavedTranscription = function(id){
+	editor.loadSavedTranscription = function(id, cb){
 		console.log("Loading transcription " + id);
 			if(id){
 			var transcriptionId = id;
@@ -80,7 +89,8 @@ var Editor = (function(){
 					var element =	that.createTranscriptionElement(entry);
 					that.previn.appendChild(element);
 				}
-				//that.previn.appendChild(content);
+				cb();
+				//that.previn.appendChild(content);<-- Better way to do it, have to unwrap it first
 			})
 			.fail(function(){
 				console.log("Could not find resource");

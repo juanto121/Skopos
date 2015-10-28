@@ -21,6 +21,8 @@ var Collab = (function(){
 		this.playerElement = document.querySelector('#player');
 		this.videoId = document.querySelector('#videoId').innerHTML;
 		this.collaborators = document.querySelector('.collaboratorsList');
+		this.localProgress = $('.partialProgress');
+		this.fraction = 1;
 		
 		this.player.initVars(this.playerElement, this.videoId, this.videoTitle);
 		this.player.addListener(this.playerReady.bind(this));
@@ -30,6 +32,7 @@ var Collab = (function(){
 
 		this.toolBox.addSubscriber(this.toolAction.bind(this));
 		this.userInput.addSubscriber(this.editor.addLine.bind(this.editor));
+		this.userInput.addSubscriber(this.computeLocalProgress.bind(this));
 		
 		this.userInput.addSubscriber(this.player.resume.bind(this.player));
 
@@ -48,6 +51,7 @@ var Collab = (function(){
 	collab.toolAction = function(notification){
 		console.log(notification);
 		if(notification.tag == "save"){
+			this.computeLocalProgress();
 			var transcript = this.editor.downloadFormat();
 			var videoId = this.player.getVideoId();
 			var titulo =  document.querySelector("#title_video").textContent;
@@ -65,6 +69,12 @@ var Collab = (function(){
 		this.obtainCollabInfo();
 	};
 
+	collab.computeLocalProgress = function(){
+		var secondsTranscripted = this.editor.getTranscriptedTime();
+		var total = this.player.duration;
+		this.localProgress.css("width", (secondsTranscripted * 100 / total)*this.fraction + "%");
+	};
+
 	collab.obtainCollabInfo = function(){
 		var collaboration = this;
 		var location = document.location.pathname;
@@ -78,8 +88,11 @@ var Collab = (function(){
 			}
 			var videoDuration = collaboration.player.duration;
 			var fraction = 1 / collabInfo.collaborators.length;
+			collaboration.fraction = fraction;
 			collaboration.transcription = data.part;
-			collaboration.editor.loadSavedTranscription(collaboration.transcription._id);
+			collaboration.editor.loadSavedTranscription(collaboration.transcription._id, function(){
+				collaboration.computeLocalProgress();
+			});
 			collaboration.sectionVideo(userIndex, fraction, videoDuration);
 			console.log("loading - user index: " + userIndex + " fraction: " + fraction + " duration:" + videoDuration);
 		});
