@@ -2,6 +2,7 @@ var fs	= require('fs');
 var userc = require('./controllers/userController');
 var transc = require('./controllers/transcriptionController');
 var collabc = require('./controllers/collabController');
+var Merger = require('sub-merge/src/SubtitleMerger');
 
 module.exports = function(app, passport) {
 
@@ -56,6 +57,31 @@ module.exports = function(app, passport) {
 	});
 
 	/* ============================ LOGGED USERS ============================*/
+
+	app.get('/collab/download/:id', isLoggedIn, function(req, res){
+		var idCollab = req.params.id;
+		var filepath = './public/temp/files/' + idCollab + '.srt';
+		console.log("trying download merged files");
+		collabc.getPartsId(idCollab, function(parts){
+			if(parts){
+				console.log(parts);
+				var merger = new Merger(parts.map(function(part){
+					return './public/temp/files/' + part + '.srt';
+				}));
+				merger.mergeToString(function(merged){
+					fs.writeFile(filepath, merged, function(err){
+						if(err) console.log(err);
+						else{
+							res.writeHead(200,{'content-type':'application/x-subrip'});
+							res.end('/temp/files/'+ idCollab + '.srt');
+						}
+					});
+				});
+			}else{
+				send("Not found", 404);
+			}
+		});
+	});
 
 
 	app.get('/collab/new', isLoggedIn, function(req, res){

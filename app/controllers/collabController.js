@@ -85,6 +85,30 @@ exports.getCollaborators = function(collabId, cb){
 	});
 };
 
+exports.getParts = function(collabId, cb){
+	Collab.findOne({_id:collabId}).populate({path:'parts'}).exec(function(err, collab){
+		if(err) console.log("Error while finding parts");
+		else{
+			cb(collab.parts);
+		}
+	});
+};
+
+exports.getPartsId = function(collabId, cb){
+	this.getParts(collabId, function(parts){
+		if(parts){
+			var ids = [];
+			for(var f = 0; f < parts.length; f++){
+				ids.push(parts[f]._id);
+			}
+			cb(ids);
+		}else{
+			console.log("Error while retrieving parts");
+			cb(false);
+		}
+	});
+};
+
 exports.findCollabById = function(id, cb){
 	Collab
 	.findOne({_id:id}, function(err, collaboration){
