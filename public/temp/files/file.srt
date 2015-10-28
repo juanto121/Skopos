@@ -1,48 +1,40 @@
 1
-00:00:02,242 --> 00:00:02,902
-Ahhh, the sound
+00:00:03,641 --> 00:00:04,201
+a classical computer
 
 2
-00:00:02,902 --> 00:00:03,902
-of shaking
+00:00:04,201 --> 00:00:04,681
+performs
 
 3
-00:00:03,902 --> 00:00:05,262
-animal intestins
+00:00:04,681 --> 00:00:06,682
+operations using classical
 
 4
-00:00:05,262 --> 00:00:08,002
-I mean strings
+00:00:06,682 --> 00:00:08,882
+bits, whichs can be either zero or one
 
 5
-00:00:08,002 --> 00:00:10,802
-which are traditionally made out of cat gut
+00:00:08,882 --> 00:00:09,681
+now in contrast
 
 6
-00:00:10,802 --> 00:00:11,282
-when a string vibrates
+00:00:09,681 --> 00:00:11,641
+a quantum computer
 
 7
-00:00:11,282 --> 00:00:12,002
-it does so with the ends
+00:00:11,641 --> 00:00:12,402
+uses quantum bits, or
 
 8
-00:00:12,002 --> 00:00:13,442
-fixed to the instrument
+00:00:12,402 --> 00:00:15,002
+qubits
 
 9
-00:00:13,442 --> 00:00:14,382
-this means that it can only vibrate
+00:00:15,002 --> 00:00:15,761
+and they can be both zero and one
 
 10
-00:00:14,382 --> 00:00:16,762
-In certain ways
-
-11
-00:00:16,762 --> 00:00:17,282
-sine waves
-
-12
-00:00:17,282 --> 00:00:20,282
-like a jump rope
+00:00:15,761 --> 00:00:18,761
+at the same time
 

@@ -9,13 +9,10 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/mainListCollab.css">
 	<link rel="stylesheet" href="../css/collabconfig.css">
-
-
 </head>
 
 <body>
@@ -26,13 +23,11 @@
 	<% include partials/menu_collab_conf %>
 
 	 <div class="center">
-
 		<form class="pure-form pure-form-stacked" method="post">
 			<fieldset>
 				<legend>  <h1><div class="information">Ingresa el Link o Selecciona la Colaboración</div></h1> </legend>
 				
 				<div class="colaboracion"> 
-
 					<label class="col_elem" for="videoId"><h3>Ingrese el Link Compartido: </h3></label>
 					<input class="col_elem" type="text" placeholder="/collab/562c53afc571f1e80b106b4a" name="colaboracion">
 					
@@ -43,26 +38,27 @@
 						</button>
 
 					</div>
-
-					<!-- Colaboraciones -->
-
-				      <p><b>Lista de Colaboraciones:</b></p>
-				      <div class= "activity">
-				      <%for(var i = 0; i < collabs.length; i++){%>
-				        
-				          <a class="collab_ref" href='/collab/<%=collabs[i]._id%>'/>
-				            <img class="collab"  src="http://img.youtube.com/vi/<%=collabs[i].videoId%>/0.jpg">
-				            </img>
-				          </a>
-				 
-				        
-				      <% } %>
-					</div>
-
 				</div>
 			</fieldset>
 		</form>
-	  </div>
+	</div>
+	<div class="content">
+		<div class="pure-u-4-5">
+		<!-- Colaboraciones -->
+
+	    <h2>Lista de colaboraciones</h2>
+	      <div class= "pure-g">
+	      <%for(var i = 0; i < collabs.length; i++){%>
+	      <div class="pure-u-1-4 pure-u-lg-1-8">
+	          <a class="collab_ref" href='/collab/<%=collabs[i]._id%>'/>
+	            <img class="pure-img"  src="http://img.youtube.com/vi/<%=collabs[i].videoId%>/0.jpg"></img>
+	            <p><%=collabs[i].videoId%></p>
+	          </a>
+	      </div>
+	      <% } %>
+		</div>
+	</div>
+	</div>
  </div>
 
  <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
