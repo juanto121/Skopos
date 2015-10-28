@@ -5,13 +5,10 @@
 	list-style: none;
 }
 .collaborator{
+	margin-left: 10px;
 	display: inline-block;
 	background-color: #ADDEF1;
 }
-.previnput{
-	margin-top:20%;
-}
-
 .elem
 {
 	height: auto !important;

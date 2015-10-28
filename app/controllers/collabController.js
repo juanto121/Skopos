@@ -60,22 +60,53 @@ exports.saveCollab = function(req, cb){
 
 exports.findPartByUserInCollab = function(idUser, collab, cb){
 	var found = false;
-	this.populateCollab(collab._id, function(err, collab){
-		if(err) throw err;
-		for (var i = collab.parts.length - 1; i >= 0; i--) {
-				console.log(collab.parts[i].author + " <--> " + idUser);
-				if(collab.parts[i].author+"" === idUser+""){
-					found = collab.parts[i];
-					cb(found);
-					return;
-				}
-		}
-		cb(found);
-	});
+	console.log(collab);
+	for (var i = collab.parts.length - 1; i >= 0; i--) {
+			console.log(collab.parts[i].author + " <--> " + idUser);
+			if(collab.parts[i].author+"" === idUser+""){
+				found = collab.parts[i];
+				cb(found);
+				return;
+			}
+	}
+	cb(found);
 };
 
 exports.populateCollab = function(collabId, cb){
-	Collab.findOne({_id:collabId}).populate({path:'parts'}).exec(cb);
+	Collab.findOne({_id:collabId}).populate([{path:'parts'},{path:'collaborators'}]).exec(cb);
+};
+
+exports.getCollaborators = function(collabId, cb){
+	Collab.findOne({_id:collabId}).populate({path:'collaborators'}).exec(function(err, collab){
+		if(err) console.log("Error while finding collaborators");
+		else{
+			cb(collab.collaborators);
+		}
+	});
+};
+
+exports.getParts = function(collabId, cb){
+	Collab.findOne({_id:collabId}).populate({path:'parts'}).exec(function(err, collab){
+		if(err) console.log("Error while finding parts");
+		else{
+			cb(collab.parts);
+		}
+	});
+};
+
+exports.getPartsId = function(collabId, cb){
+	this.getParts(collabId, function(parts){
+		if(parts){
+			var ids = [];
+			for(var f = 0; f < parts.length; f++){
+				ids.push(parts[f]._id);
+			}
+			cb(ids);
+		}else{
+			console.log("Error while retrieving parts");
+			cb(false);
+		}
+	});
 };
 
 exports.findCollabById = function(id, cb){
