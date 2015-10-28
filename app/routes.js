@@ -113,11 +113,13 @@ module.exports = function(app, passport) {
 	app.get('/collab/:id/data', isLoggedIn, function(req, res){
 		var id = req.params.id;
 		var userId = req.user.id;
-		collabc.findCollabById(id, function(collab){
+		collabc.populateCollab(id, function(err, collab){
 			if(collab){
 				collabc.findPartByUserInCollab(userId, collab, function(transcription){
 					res.send({collab:collab, userId:userId, part:transcription});	
 				});
+			}else{
+				console.log(collab);
 			}
 		});
 	});

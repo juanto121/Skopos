@@ -20,6 +20,7 @@ var Collab = (function(){
 		this.videoTitle = document.querySelector("#title_video");
 		this.playerElement = document.querySelector('#player');
 		this.videoId = document.querySelector('#videoId').innerHTML;
+		this.collaborators = document.querySelector('.collaboratorsList');
 		
 		this.player.initVars(this.playerElement, this.videoId, this.videoTitle);
 		this.player.addListener(this.playerReady.bind(this));
@@ -70,13 +71,23 @@ var Collab = (function(){
 		$.get(location + '/data', function(data){
 			var collabInfo = data.collab;
 			var userId = data.userId;
-			var userIndex = collabInfo.collaborators.indexOf(userId);
+			var userIndex = 0;
+			for(var i = 0; i < collabInfo.collaborators.length; i++){
+				collaboration.addCollaborator(collabInfo.collaborators[i]);
+				if(collabInfo.collaborators[i]._id == userId) userIndex = i;
+			}
 			var videoDuration = collaboration.player.duration;
 			var fraction = 1 / collabInfo.collaborators.length;
 			collaboration.transcription = data.part;
 			collaboration.editor.loadSavedTranscription(collaboration.transcription._id);
 			collaboration.sectionVideo(userIndex, fraction, videoDuration);
+			console.log("loading - user index: " + userIndex + " fraction: " + fraction + " duration:" + videoDuration);
 		});
+	};
+
+	collab.addCollaborator = function(collaborator){
+		var collaboratorElement = $('<li class="collaborator">'+collaborator.local.nombre+'</li>');
+		this.collaborators.appendChild(collaboratorElement[0]);
 	};
 
 	collab.sectionVideo = function(userIndex, fraction, videoDuration){

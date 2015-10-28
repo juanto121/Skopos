@@ -21,6 +21,7 @@
     "mongoose": "3.8.x",
     "morgan": "1.0.x",
     "passport": "0.1.x",
-    "passport-local": "0.1.x"
+    "passport-local": "0.1.x",
+    "sub-merge": "0.0.1"
   }
 }

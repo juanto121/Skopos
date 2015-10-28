@@ -5,6 +5,7 @@
 	list-style: none;
 }
 .collaborator{
+	margin-left: 10px;
 	display: inline-block;
 	background-color: #ADDEF1;
 }
