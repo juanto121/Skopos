@@ -124,6 +124,32 @@ body{
     padding-bottom: 30px;
 }
 
+.center_links
+{
+  margin-left:360px;
+   
+}
+
+.center_links i
+{
+  margin-left: 28px;
+  margin-top: 12px;
+
+}
+
+
+.footer_cont p
+{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer
+{
+  color:white;
+  padding-top: 5px;
+}
+
 .stats{
     position: relative;
     text-align: center;
@@ -131,6 +157,12 @@ body{
 .row{
         margin-top: 100px;
     margin-bottom: 100px;
+}
+
+.row_video
+{
+    margin-top: 100px !important;
+    margin-bottom: 100px !important;
 }
 .yellow{
      color: #fcdb34;
@@ -144,9 +176,17 @@ body{
     position: relative;
 }
 .center{
-  max-width: 900px;  
+  max-width: 1000px;  
   margin:0 auto; 
 }
+
+
+.footer
+{
+  background-color: black;
+  height: 200px;
+}
+
 .rombo{
     position:absolute;
     background: #2C2C2A;
