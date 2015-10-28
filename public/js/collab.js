@@ -53,15 +53,17 @@ var Collab = (function(){
 		if(notification.tag == "save"){
 			this.computeLocalProgress();
 			var transcript = this.editor.downloadFormat();
-			var videoId = this.player.getVideoId();
-			var titulo =  document.querySelector("#title_video").textContent;
+			if(this.editor.transcription.length){
+				var videoId = this.player.getVideoId();
+				var titulo =  document.querySelector("#title_video").textContent;
 
-			console.log(titulo);
+				console.log(titulo);
 
-			$.post(document.location.pathname,{data: transcript, videoId: videoId, title_video: titulo}, function(response){
-				//TODO: show message, transcription saved
-				console.log("transcription saved?");
-			});
+				$.post(document.location.pathname,{data: transcript, videoId: videoId, title_video: titulo}, function(response){
+					//TODO: show message, transcription saved
+					console.log("transcription saved?");
+				});
+			}
 		}
 	};
 
