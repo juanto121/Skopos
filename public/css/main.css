@@ -116,6 +116,40 @@ body{
     font-size: 100px;
 }
 
+.huge_desc {
+    font-family: "Roboto Condensed",sans-serif;
+    text-align: center;
+    font-size: 18px;
+    margin-top: -83px;
+    padding-bottom: 30px;
+}
+
+.center_links
+{
+  margin-left:360px;
+   
+}
+
+.center_links i
+{
+  margin-left: 28px;
+  margin-top: 12px;
+
+}
+
+
+.footer_cont p
+{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer
+{
+  color:white;
+  padding-top: 5px;
+}
+
 .stats{
     position: relative;
     text-align: center;
@@ -124,16 +158,35 @@ body{
         margin-top: 100px;
     margin-bottom: 100px;
 }
+
+.row_video
+{
+    margin-top: 100px !important;
+    margin-bottom: 100px !important;
+}
 .yellow{
      color: #fcdb34;
 }
+
+.yellowback{
+  background-color: #fcdb34;
+}
+
 .general_info{
     position: relative;
 }
 .center{
-  max-width: 900px;  
+  max-width: 1000px;  
   margin:0 auto; 
 }
+
+
+.footer
+{
+  background-color: black;
+  height: 200px;
+}
+
 .rombo{
     position:absolute;
     background: #2C2C2A;
@@ -146,6 +199,7 @@ body{
 }
 .menu_link{
   text-decoration: none;
+  color:#212121;
 }
 .menu_link:visited{
   color:#212121;
@@ -312,104 +366,6 @@ p{
   margin-left: 56px;
 }
 
-.btn {
-  background: #FFF;
-  border: #2C2C2A solid 1px;
-  border-radius: 3px;
-  color:black;
-  display: inline-block;
-  font-size: 14px;
-  padding: 8px 15px;
-  text-decoration: none;
-  text-align: center;
-  min-width: 60px;
-  transition: color .1s ease;
-  /* top: 40em;*/
-}
-.btn:hover {
-  background: #2C2C2A;
-  color:white;
-}
-.btn.btn-big {
-    font-size: 14px;
-    padding: 5px 7px;
-    min-width: 97px;
-}
-.btn-close {
-  color: #aaaaaa;
-  font-size: 30px;
-  text-decoration: none;
-  position: absolute;
-  right: 12px;
-  top: 0;
-}
-.btn-close:hover {
-  color: #919191;
-}
-.modal:before {
-  content: "";
-  display: none;
-  background: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
-}
-.modal:target:before {
-  display: block;
-}
-.modal:target .modal-dialog {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
-  top: 20%;
-}
-.modal-dialog {
-  background: #fefefe;
-  border: #333333 solid 1px;
-  border-radius: 5px;
-  margin-left: -200px;
-  position: fixed;
-  left: 50%;
-  top: -100%;
-  z-index: 11;
-  width: 460px;
-  height: 305px;
-  -webkit-transform: translate(0, -500%);
-  -ms-transform: translate(0, -500%);
-  transform: translate(0, -500%);
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-}
-.modal-body {
-  padding: 20px;
-  height: 125px;
-}
-.modal-header
-{
-  padding: 0px 20px;
-}
-.modal-footer {
-  padding: 17px 20px;
-}
-.modal-header {
-  border-bottom: #eeeeee solid 1px;
-}
-.modal-header h2 {
-  font-size: 20px;
-}
-.modal-footer {
-  border-top: #eeeeee solid 1px;
-  text-align: right;
-}
-
-#close {
-  display: none;
-}
 
 
 

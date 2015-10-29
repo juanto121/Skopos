@@ -200,7 +200,7 @@ a:hover { text-decoration: underline; }
 /** page structure **/
 #w {
   display: block;
-  width: 850px;
+  width: 900px;
   margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 45px;

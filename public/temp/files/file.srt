@@ -1,4 +1,40 @@
 1
-00:00:00,692 --> 00:00:03,692
-asdwd
+00:00:03,641 --> 00:00:04,201
+a classical computer
+
+2
+00:00:04,201 --> 00:00:04,681
+performs
+
+3
+00:00:04,681 --> 00:00:06,682
+operations using classical
+
+4
+00:00:06,682 --> 00:00:08,882
+bits, whichs can be either zero or one
+
+5
+00:00:08,882 --> 00:00:09,681
+now in contrast
+
+6
+00:00:09,681 --> 00:00:11,641
+a quantum computer
+
+7
+00:00:11,641 --> 00:00:12,402
+uses quantum bits, or
+
+8
+00:00:12,402 --> 00:00:15,002
+qubits
+
+9
+00:00:15,002 --> 00:00:15,761
+and they can be both zero and one
+
+10
+00:00:15,761 --> 00:00:18,761
+at the same time
 

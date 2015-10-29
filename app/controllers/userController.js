@@ -1,5 +1,7 @@
 var User			= require('../models/user');
 var Transcription	= require('../models/transcription');
+var fileSave		= require('file-save');
+var Collab	= require('../models/collab');
 
 exports.updateUserInfo = function(req, cb) {
 	var user = req.user;
@@ -27,18 +29,21 @@ exports.saveTranscription = function(req, cb){
 	var titulo          = req.body.title_video;
 	var transcript		= req.body.data;
 	var videoId			= req.body.videoId;
-	var path			= saveToFs(transcript);
 	var transcription	= new Transcription();
-	transcription.path		= path+transcription._id;
+	transcription.path		= "public/temp/files/"+transcription._id+".srt";
 	transcription.videoId	= videoId;
 	transcription.author	= user._id;
 	transcription.title_video	= titulo;
 	
-	//TODO: is cb calling itself twice?
-
 	transcription.save(function(err){
 		if(err) cb(err);
-		cb();
+
+		console.log(transcription.path);
+		console.log(transcript);
+
+		fileSave(transcription.path)
+		.write(transcript, 'utf-8')
+		.end();
 	});
 	
 	user.transcriptions.push(transcription);
@@ -57,6 +62,17 @@ exports.getTranscriptions = function(req, cb){
 	});
 };
 
+exports.getCollabsUser = function(req, cb){
+	var user = req.user;
+	Collab
+	.find({author : user._id})
+	.exec(function(err, collaboration){
+		/*TODO: Replace with flash message*/
+		if(err) console.log("Error while getting collaborations");
+		return cb(collaboration);
+	});
+};
+
 //TODO: getTranscriptionById belongs to a transcription controller
 exports.getTranscriptionById = function(id, cb){
 	Transcription
@@ -66,11 +82,3 @@ exports.getTranscriptionById = function(id, cb){
 		cb(transcript);
 	});
 };
-
-//Helpers
-
-function saveToFs(transcript){
-	var path = "temp/files/";
-	//TODO write file logic.
-	return path;
-}

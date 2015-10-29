@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/vendor/pure-min.css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/mainsolo.css">
+    <link rel="stylesheet" href="../css/modal.css">
     <link rel="stylesheet" href="../css/vendor/side-menu.css">
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -21,6 +22,28 @@
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
+
+
+<!-- Modal de Confirmación de Cambios - Guardado -->
+ <div class="modal" id="modal-one" aria-hidden="true">
+        <div class="modal-dialog" >
+          <div class="modal-header">
+            <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Información SKOPOS</h4>
+            <a href="#close" class="btn-close" aria-hidden="true">×</a>
+        </div>
+
+            <div class="modal-body">
+
+                <h4> Transcripción Guardada con Éxito </h4>
+
+            </div>
+
+          <div class="modal-footer">
+              <a href="#close" class="btn">Aceptar</a>
+          </div>
+  </div>
+</div>
+
 
 <div id="layout">
 
@@ -50,8 +73,11 @@
                     <!--TODO: change for asking to login-->
                     <%if(transcription){%>
                     <div id="save" class="tool">
+                        <a href="#modal-one" >
                         <i  class="save fa fa-floppy-o"></i>
                         Guardar
+                        </a>
+                        
                     </div>
                     <div id="trash" class="tool">
                         <i  class="trash fa fa-trash-o"></i>
@@ -70,6 +96,7 @@
         
     </div>
 <div id="main">
+    <div id="videoId" class="hidden"> </div>
     <%if(transcription){%>
     <div class="center">
         
@@ -83,13 +110,17 @@
         <%}%>
         
             <div class="videoContainer">
+                <div id="videoId" class="hidden"> 
+                    <%=transcription.videoId%>
+                </div>
+                <div id="transcriptionId" class="hidden"><%=transcription._id%></div>
                 <div  class="videoTitle">
                     <h1 class="huge">
-                       <div id="title_video" > <%=transcription.title_video%></div> 
+                       <div id="title_video"><%=transcription.title_video%></div>
                     </h1>
                 </div>
                 <div class="videoMedia">
-                    <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/<%=transcription.videoId%>?enablejsapi=1&theme=light&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                      <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/<%=transcription.videoId%>?enablejsapi=1&theme=light&showinfo=0" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 

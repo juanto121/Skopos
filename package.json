@@ -1,23 +1,27 @@
 {
-	"name":"skopos",
-	"version":"1.0.0",
-	"description":"Transcription for videos made easy",
-	"author":"Juan Torres",
-	"contributors":[{
-			"name":"Jonathan Tamayo"
-		}],
-	"dependencies": {
-			"express": "4.2.x",
-			"ejs" : "0.8.x",
-			"mongoose" : "3.8.x",
-			"passport" : "0.1.x",
-			"passport-local" : "0.1.x",
-			"connect-flash" : "0.1.x",     
-    		"bcrypt-nodejs" : "latest",
-    		"morgan": "1.0.x",
-    		"cookie-parser": "1.0.x",
-    		"method-override": "1.0.x",
-    		"express-session": "1.0.x",
-			"body-parser": "1.13.x"
-		}
+  "name": "skopos",
+  "version": "1.0.0",
+  "description": "Transcription for videos made easy",
+  "author": "Juan Torres",
+  "contributors": [
+    {
+      "name": "Jonathan Tamayo"
+    }
+  ],
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "body-parser": "1.13.x",
+    "connect-flash": "0.1.x",
+    "cookie-parser": "1.0.x",
+    "ejs": "0.8.x",
+    "express": "4.2.x",
+    "express-session": "1.0.x",
+    "file-save": "^0.2.0",
+    "method-override": "1.0.x",
+    "mongoose": "3.8.x",
+    "morgan": "1.0.x",
+    "passport": "0.1.x",
+    "passport-local": "0.1.x",
+    "sub-merge": "0.0.1"
+  }
 }

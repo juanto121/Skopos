@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title>Collaboration Setup</title>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="../../css/main.css">
+	<link rel="stylesheet" href="../../css/collabadmin.css">
+
+</head>
+
+<body>
+
+<div id="layout">
+	
+	<% include partials/menu_collab_conf %>
+	
+ <div class="center">
+	
+
+		  <h1><div class="information">Configuración Colaboración</div></h1> 
+
+		<hr>
+
+		<div class="share">
+			<h2>Link para colaboradores:</h2> 
+			<a href="/collab/<%=collab._id%>">skopos.com/collab/<%=collab._id%> </a>
+		</div>
+
+		<div class="admin">
+			<h2>Link para admin:</h2> 
+			<a href="/collab/admin/<%=collab._id%>"> skopos.com/collab/admin/<%=collab._id%> </a>
+		</div>
+		
+		<div class="videoInfo">
+			<h3>Video Info:</h3>
+			Video id: <%=collab.videoId%>
+		</div>
+		
+		<div class="collaborators">
+			<h3>Collaborators</h3>
+		</div>
+
+		<div class="progress">
+			<h3>Progress:</h3>	
+		</div>
+
+		<div class="download">
+			<button value="<%=collab._id%>" class="download-collab">Download</button>
+		</div>
+	  
+
+	  <hr>
+
+	  <div>
+	  	<h3> Comparte el Link a tus Amigos: </h3>
+		<!-- Redes Sociales -->
+		<div class="center_links">
+
+			<i class="fa fa-facebook-square fa-2x"></i>
+			<i class="fa fa-twitter fa-2x"></i>
+			<i class="fa fa-google-plus fa-2x"></i>
+			<i class="fa fa-reddit fa-2x"></i>
+
+		</div>
+
+	  </div>
+ </div>
+
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="../../js/collabAdmin.js"></script>
+</body>
+</html>

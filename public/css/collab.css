@@ -1,0 +1,42 @@
+.completion{
+	background-color: #fcdb34;
+}
+.collaboratorsList{
+	list-style: none;
+}
+.collaborator{
+	margin-left: 10px;
+	display: inline-block;
+	background-color: #ADDEF1;
+}
+.elem
+{
+	height: auto !important;
+}
+.center_part
+{
+	margin-left: 120px;
+}
+
+#save a
+{
+    text-decoration: none;
+    margin-left: -10px;
+}
+
+.tutorial_back{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.9);
+	position: absolute;
+	z-index: 999;
+}
+
+.tutorial_pop{
+	position:relative;
+	z-index: 1000;
+	background-color: rgba(255,255,255,1);
+	padding: 10px;
+	border-radius: 10px;
+}

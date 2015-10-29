@@ -4,7 +4,7 @@ function fadeIn() {
 
   
   var tick = function() {
-    transcripcion.style.opacity = +transcripcion.style.opacity + 0.01;
+    transcripcion.style.opacity = +transcripcion.style.opacity + 0.05;
     
 
     if (+transcripcion.style.opacity < 1) {

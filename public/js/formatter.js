@@ -12,6 +12,10 @@ var Formatter = (function(){
 		return	this.formatterType.format(content);
 	};
 
+	formatter.deformat = function(content){
+		return this.formatterType.deformat(content);
+	};
+
 	formatter.setFormatterType = function(formatterType){
 		this.formatterType = formatterType;
 	};

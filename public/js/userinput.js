@@ -16,6 +16,7 @@ var UserInput = (function(){
 	ui.bindElement = function(element){
 		element.onkeydown = function(evt){
 			var code = evt.keyCode;
+			if(code == 13) evt.preventDefault();
 			this.notifyInput(code);
 		}.bind(this);
 	};

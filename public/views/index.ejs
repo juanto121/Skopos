@@ -12,9 +12,11 @@
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/modal.css">
+     <link rel="stylesheet" href="../css/normalize.css">
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../js/animaciones.js"></script>
 </head>
 <body>
     <nav class="topnav">
@@ -30,6 +32,7 @@
     </nav>
 
     <h1 class="huge">S<span class="yellow">K</span>OPOS</h1>
+    <h4 class="huge_desc"> <i> Ayudanos a Transcribir el Mundo </i> </h4>
     
     <!-- Modal login -->
 
@@ -81,35 +84,48 @@
             </div>
         </div>
         </a>
+        
+         <%if(user){%>
+        <a href="/collab/new" class="menu_link">
+        <%}else{%>
+        <a href="#modal-one" class="menu_link">
+         <%}%>
+
         <div class="bottom infobox">
             <div class="group">
                 <div class="col description span_3_of_4">
                     <div class="content_left">
-                        <h2>Compite</h2>
+                        <h2>Crea tu Grupo</h2>
                         <p>
-                            ¿Crees que escribes más rápido que tu oponente? Ponte a prueba y ayudanos a transcribir el mundo.
+                            Crea un grupo de colaboración para trancribir un video de tu interés. !Comparte, Animate con tus Amigos!
                         </p>
                     </div>
                 </div>
-                <div class="col icon span_1_of_4"> <i class="fa fa-trophy fa-2x icon_bl"></i> </div>
+                <div class="col icon span_1_of_4"> <i class="fa fa-users fa-2x icon_bl"></i> </div>
             </div>
         </div>
+      </a>
     </div>
     <div class="col span_1_of_2">
+    <%if(user){%>
+        <a href="/collabList" class="menu_link">
+        <%}else{%>
+        <a href="#modal-one" class="menu_link">
+         <%}%>
      <div class="top infobox">
         <div class="group">
-            <div class="col icon span_1_of_4"><i class="fa fa-gamepad fa-2x icon_tr"></i></div>
+            <div class="col icon span_1_of_4"><i class="fa fa-globe fa-2x icon_tr"></i></div>
             <div class="col description span_3_of_4">
                 <div class="content_right">
-                    <h2>Juega</h2>
+                    <h2>Unete y Ayudanos</h2>
                     <p>
-                        Escribir de forma agil es una habilidad, entre más rapido seas más puntos ganas.
+                        Unete a una colaboración de transcripción, seleccionandola o ingresando el link compartido.
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    
+     </a>
     <div class="bottom infobox">
        <div class="group">
         <div class="col icon span_1_of_4"><i class="fa fa-graduation-cap fa-2x icon_br"></i></div>
@@ -133,22 +149,22 @@
         <div class="design col span_1_of_3">
             <div class="result">
                 <div class="fa fa-play-circle fa-3x icon_2"></div>
-                <span class="label_out"> 1.500 </span>
+                <span id="videos_transc" class="label_out"> 0 </span>
                 <span class="label_in" > Videos Transcritos</span>
             </div>
         </div>
         <div class="won col span_1_of_3">
             <div class="result">
-                <div class="fa fa-trophy fa-3x icon_2"></div>
-                <span class="label_out"> 20.000 </span>
-                <span  class="label_in"> Competencias </span>
+                <div class="fa fa-globe fa-3x icon_2"></div>
+                <span id="collabs_go" class="label_out"> 0</span>
+                <span  class="label_in"> Colaboraciones </span>
             </div>
         </div>
         <div class="sent col span_1_of_3">
             <div class="result">
                 <div class="fa fa-language fa-3x icon_2"></div>
                 <img class="icon_2"></img>
-                <span class="label_out">2</span>
+                <span id="leng_sopor" class="label_out">0</span>
                 <span class="label_in">Lenguajes soportados</span>
             </div>
         </div>
@@ -156,46 +172,14 @@
 </div>
 
 
-<div class="group content center row">
+<div class="group content center row_video ">
     <div class="col span_1_of_2">
-        <h3>Ranking</h3>
         
-        <div class="ranking">
-            <table>
-                <th>Player</th>
-                <th>Score</th>
-                <tr>
-                    <td>Jhon</td>
-                    <td>57122</td>
-                </tr>
-                <tr>
-                    <td>Snow</td>
-                    <td>57121</td>
-                </tr>
-                <tr>
-                    <td>Jhon</td>
-                    <td>57122</td>
-                </tr>
-                <tr>
-                    <td>Snow</td>
-                    <td>57121</td>
-                </tr>
-                <tr>
-                    <td>Jhon</td>
-                    <td>57122</td>
-                </tr>
-                <tr>
-                    <td>Snow</td>
-                    <td>57121</td>
-                </tr>
-            </table>
-        </div>
-    </div>                   
-    <div class="col span_1_of_2">
+        <fieldset>
 
-        <h3>Videos</h3>
+        <legend> <i> <h4>Videos Interesantes para Transcribir</h4> </i> </legend>
         
-        <div class="col span_1_of_2">
+         <div class="col span_1_of_2">
             <img class="video_min" src="../img/vid1.jpg"></img>
         </div>
 
@@ -203,12 +187,64 @@
             <img class="video_min" src="../img/vid3.jpg"></img>
         </div>
         
-        <div class="col span_3_of_3 ">
+        <div class="col span_1_of_2 ">
             <img class="video_min" src="../img/vid2.jpg"></img>
         </div>
+
+         <div class="col span_1_of_2 ">
+            <img class="video_min" src="../img/vid4.jpg"></img>
+        </div>
+       
+
+       </fieldset>
+    </div>  
+
+    <div class="col span_1_of_2">
+
+        <fieldset>
+
+        <legend> <i> <h4>Colaboraciones Recientes</h4> </i></legend>
+        
+        <div class="col span_1_of_2">
+            <img class="video_min" src="../img/vid5.jpg"></img>
+        </div>
+
+        <div class="col span_1_of_2">
+            <img class="video_min" src="../img/vid6.jpg"></img>
+        </div>
+        
+        <div class="col span_1_of_2 ">
+            <img class="video_min" src="../img/vid7.jpg"></img>
+        </div>
+
+         <div class="col span_1_of_2 ">
+            <img class="video_min" src="../img/vid8.jpg"></img>
+        </div>
+
+        </fieldset>
     </div>
     
 </div>
+
+  <div class="footer   span_3_of_3">
+    <div class="center footer_cont">
+       <p> Tecnologías Avanzadas <br> Universidad Pontificia Bolivariana </p> 
+
+       <hr>
+
+       <div class="center_links">
+
+            <i class="fa fa-facebook-square fa-2x"></i>
+            <i class="fa fa-twitter fa-2x"></i>
+            <i class="fa fa-google-plus fa-2x"></i>
+            <i class="fa fa-reddit fa-2x"></i>
+
+        </div>
+  
+    </div>
+
+  </div>
+
 
 
 </body>

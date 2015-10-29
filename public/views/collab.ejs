@@ -1,0 +1,141 @@
+<html>
+	<head>
+ 	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Skopos:Collab</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/vendor/pure-min.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/mainsolo.css">
+    <link rel="stylesheet" href="../css/collab.css">
+    <link rel="stylesheet" href="../css/vendor/side-menu.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="../css/vendor/grids-responsive-min.css">
+    <!--<![endif]-->
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+	</head>
+	<body>
+
+    <!-- Modal de Confirmación de Cambios - Guardado -->
+ <div class="modal" id="modal-one" aria-hidden="true">
+        <div class="modal-dialog" >
+          <div class="modal-header">
+            <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Información SKOPOS</h4>
+            <a href="#close" class="btn-close" aria-hidden="true">×</a>
+        </div>
+
+            <div class="modal-body">
+
+                <h4> Transcripción Guardada con Éxito </h4>
+
+            </div>
+
+          <div class="modal-footer">
+              <a href="#close" class="btn">Aceptar</a>
+          </div>
+  </div>
+</div>
+    
+    <div class="tutorial_back hidden"></div>
+
+    <div id="layout">
+
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+    <div id="menu"  class="pure-menu custom-restricted-width ">
+        
+            <span class=" menu-title pure-menu-heading">
+                <a class="menu-heading-home" href="/">S[k]opos</a>
+            </span>
+            <ul class="pure-menu-list">
+
+                    <li class="pure-menu-item elem"><a href="/profile" class="pure-menu-link">Mi cuenta</a></li>
+                    <li class="pure-menu-item elem"><a href="/logout" class="pure-menu-link">Cerrar Sessión</a></li>
+               
+                <li class="menu-title pure-menu-heading">Tools</li>
+                <div class="toolbox">
+                 
+                    <div id="save" class="tool ">
+                        <a href="#modal-one">
+                            <i  class="save fa fa-floppy-o"></i>
+                            Guardar
+                        </a>
+                    </div>
+                    <div id="trash" class="tool ">
+                        <i  class="trash fa fa-trash-o"></i>
+                        Eliminar
+                    </div>
+                  
+                </div>
+                
+            </ul>
+        
+    </div>
+ <div id="videoId" class="hidden"><%=collab.videoId%></div>
+ <div id="collabId" class="hidden"><%=collab._id%></div>
+ <div class="center_part">
+
+		<div class="pure-g">
+			<div class="toolbox"></div>
+			<div class="pure-u-md-1-1 pure-u-lg-2-5">
+                <div class="center">
+				<div class="videoContainer ">
+                <div  class="videoTitle">
+                    <h1 id="title_video"></h1> 
+                </div>
+                <div class="videoMedia">
+                    <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/<%=collab.videoId%>?enablejsapi=1&theme=light&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+            	</div>
+
+            	<div class="currentInput inputContainer" contenteditable="true" spellcheck="false">
+                	<div  class="placeholder">Empiece a Transcribir Aquí!!</div>
+            	</div>
+
+            	<div class="stats">
+                    <div class="progress">
+                        <div class="completion partialProgress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">Parcial</div>
+                    </div>
+            	</div>
+
+                <div class="collaboratorsContainer">
+                    <h4>Colaboradores</h4>
+                    <ul class="collaboratorsList"></ul>
+                </div>
+                </div>
+			</div>
+
+			<div class=" pure-u-md-1-1 pure-u-lg-3-5">
+                <h1>Log:</h1>
+                <div id="update">
+                    <div class="prevInput"></div>
+            	</div>
+			</div>
+
+		</div>
+   </div>
+ </div>
+	</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="../js/plugins.js"></script>
+<script src="../js/collab.js"></script>
+<script src="../js/userinput.js"></script>
+<script src="../js/editor.js"></script>
+<script src="../js/ytplayer.js"></script>
+<script src="../js/efectInput.js"></script>
+<script src="../js/srtFormatter.js"></script>
+<script src="../js/formatter.js"></script>
+<script src="../js/tools.js"></script>
+</html>
